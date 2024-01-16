@@ -12,4 +12,4 @@ if __name__ == "__main__":
     b = 3
     Y = calcula_y(X,m,b)
     print(X,Y)
-
+# conda install conda-forge::matplotlib

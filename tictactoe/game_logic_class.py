@@ -53,7 +53,7 @@ def game(tab:dict):
         [2,4,6]
     ]
     turnos = 0
-    while turnos <=8:
+    while turnos < 8:
         display_tablero(tab)
         correcto = juega_usuario(tab)
         if correcto:

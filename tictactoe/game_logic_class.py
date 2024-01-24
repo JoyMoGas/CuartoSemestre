@@ -40,6 +40,8 @@ def check_winner(tab,lista_lineas):
     return False
 
 def game(tab:dict):
+    diccionario = {"ganador": ''} 
+
     lista_combinaciones = [
         [0,1,2],
         [3,4,5],
@@ -58,14 +60,25 @@ def game(tab:dict):
             turnos +=1
             gana = check_winner(tab,lista_combinaciones)
             if gana == True:
-                print("Ganaste!")
+                print("¡Ganaste!")
+                diccionario ["ganador"] = "jugador/a"
                 break
             ia(tab)
             gana = check_winner(tab,lista_combinaciones)
+            if gana == True:
+                diccionario["ganador"] = 'IA'
+                print("¡Ganó la IA!")
+                break
             turnos += 1
+        display_tablero(tab)
+        return diccionario
         
 #print(f"tablero :{tablero}")
 #print(f"tab_dict:{tab_dict}")
 #display_tablero(tab_dict)
 if __name__ == "__main__":
-    game(tab_dict)
+    d = game(tab_dict)
+    if d["ganador"] != '':
+        print(f"Ganó:{d['ganador']}")
+    else:
+        print("¡Empate!")

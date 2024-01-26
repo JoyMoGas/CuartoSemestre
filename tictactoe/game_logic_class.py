@@ -40,8 +40,7 @@ def check_winner(tab,lista_lineas):
     return False
 
 def game(tab:dict):
-    diccionario = {"ganador": ''} 
-
+    diccionario = {'ganador':''}
     lista_combinaciones = [
         [0,1,2],
         [3,4,5],
@@ -60,25 +59,38 @@ def game(tab:dict):
             turnos +=1
             gana = check_winner(tab,lista_combinaciones)
             if gana == True:
-                print("¡Ganaste!")
-                diccionario ["ganador"] = "jugador/a"
+                diccionario['ganador'] = "jugador"
+                # print("¡Ganaste!")
                 break
             ia(tab)
             gana = check_winner(tab,lista_combinaciones)
             if gana == True:
-                diccionario["ganador"] = 'IA'
-                print("¡Ganó la IA!")
+                diccionario['ganador'] = 'IA'
+                # print("¡Ganó la IA!")
                 break
             turnos += 1
-        display_tablero(tab)
-        return diccionario
-        
-#print(f"tablero :{tablero}")
-#print(f"tab_dict:{tab_dict}")
-#display_tablero(tab_dict)
+    display_tablero(tab)
+    return diccionario
+
+def game_cycle():
+    score = {'jugador': 0, 'IA': 0, 'Empates':0}
+    continuar = True
+    while continuar:
+        tab_dict= {x:str(x) for x in tablero}
+        d = game(tab_dict)
+        if d['ganador'] != '':
+            print(f"Ganó:{d['ganador']}")
+            score[d['ganador']] += 1
+                
+        else:
+            score["Empates"] += 1
+            print("¡Empate!")
+        otra_vez = input("¿Quieres jugar otra vez? (S/N): ")
+        otra_vez = otra_vez.upper()
+        if (otra_vez != 'S'):
+            continuar = False
+            print("¡Gracias por jugar!")
+            
+
 if __name__ == "__main__":
-    d = game(tab_dict)
-    if d["ganador"] != '':
-        print(f"Ganó:{d['ganador']}")
-    else:
-        print("¡Empate!")
+    game_cycle()

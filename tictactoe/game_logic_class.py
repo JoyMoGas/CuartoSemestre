@@ -72,25 +72,34 @@ def game(tab:dict):
     display_tablero(tab)
     return diccionario
 
+def display_score(s:dict, d:dict):
+    if d['ganador'] != '':
+        s[ d['ganador'] ] += 1
+    else:
+        s['Empates'] += 1
+        print("¡Empate!")
+    print(f"<<Jugador: {s['jugador']}>> <<IA: {s['IA']}>> <<Empates: {s['Empates']}>>")
+
+def jugar_otra_vez():
+    jugar = True
+    otra_vez = input("¿Quieres jugar otra vez? (S/N): ")
+    otra_vez = otra_vez.upper()
+    if (otra_vez != 'S'):
+        jugar = False
+        print("¡Gracias por jugar!")
+    return jugar
+
 def game_cycle():
     score = {'jugador': 0, 'IA': 0, 'Empates':0}
     continuar = True
     while continuar:
         tab_dict= {x:str(x) for x in tablero}
         d = game(tab_dict)
-        if d['ganador'] != '':
-            print(f"Ganó:{d['ganador']}")
-            score[d['ganador']] += 1
-                
-        else:
-            score["Empates"] += 1
-            print("¡Empate!")
-        otra_vez = input("¿Quieres jugar otra vez? (S/N): ")
-        otra_vez = otra_vez.upper()
-        if (otra_vez != 'S'):
-            continuar = False
-            print("¡Gracias por jugar!")
-            
+        display_score(score, d)
+        
+        continuar = jugar_otra_vez()
+        
 
 if __name__ == "__main__":
     game_cycle()
+    

@@ -2,6 +2,7 @@
 Lógica del programa del gato
 '''
 import random
+import board
 
 tablero = [x for x in range(0,9)] #0,1,2,3...8
 tab_dict= {x:str(x) for x in tablero}
@@ -53,7 +54,7 @@ def game(tab:dict):
     ]
     turnos = 0
     while turnos < 8:
-        display_tablero(tab)
+        board.display_tablero(tab)
         correcto = juega_usuario(tab)
         if correcto:
             turnos +=1

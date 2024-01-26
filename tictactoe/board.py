@@ -19,10 +19,10 @@ def display_tablero(tab: dict):
             d[k] = O + BS
     Cursor.POS(10,5)
     print(f"{bg}{BD}{reset}")
-    print(f"{bg}{d[0]}{d[1]}{d[2]}{reset}")
+    print(f"{bg}|{d[0]}{d[1]}|{d[2]}|{reset}")
     print(f"{bg}{BD}{reset}")
-    print(f"{bg}{d[3]}{d[4]}{d[5]}{reset}")   
+    print(f"{bg}|{d[3]}|{d[4]}|{d[5]}{reset}")   
     print(f"{bg}{BD}{reset}")    
-    print(f"{bg}{d[6]}{d[7]}{d[8]}{reset}")
+    print(f"{bg}|{d[6]}|{d[7]}{d[8]}|{reset}")
     print(f"{bg}{BD}{reset}")  
     print(Style.RESET_ALL)

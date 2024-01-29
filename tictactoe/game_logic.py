@@ -55,7 +55,7 @@ def game(tab:dict):
     turnos = 0
     while turnos < 8:
         board.display_tablero(tab)
-        correcto = juega_usuario(tab)
+        correcto = board.juega_usuario(tab)
         if correcto:
             turnos +=1
             gana = check_winner(tab,lista_combinaciones)
@@ -70,7 +70,7 @@ def game(tab:dict):
                 print("¡Ganó la IA!")
                 break
             turnos += 1
-    display_tablero(tab)
+    board.display_tablero(tab)
     return diccionario
 
 def display_score(s:dict, d:dict):

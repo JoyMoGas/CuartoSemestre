@@ -16,8 +16,9 @@ a.display()
 
 a.__str__()
 print(a)
-
-a = a.__repr__()
+print(repr(a))
 b = eval(repr(a))
-print(a)
 print(b)
+print(f"a:{type(a)}, b: {type(b)}")
+print(f"a:{id(a)} b:{id(b)}")
+

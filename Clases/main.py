@@ -8,4 +8,6 @@ def main():
     players_objects = [Athlete(x) for x in players]
     s = Sport("Soccer", 11, "LaBrisaMarinera")
     t = Team("LaBrisaMarinera", s)
+    for a in players_objects:
+        t.add_player(a)
     t.display()

@@ -16,6 +16,9 @@ class Team:
         for athlete in self.players:
             print(f"{athlete}")
 
+    def to_json(self):
+        return {"name": self.name, "sport": self.sport, "players": [p.name for p in self.players]}
+
 if __name__ == "__main__":
     a = Athlete("Chicharito")
     b = Athlete("Piojo Alvarado")
@@ -24,3 +27,4 @@ if __name__ == "__main__":
     t.add_player(a)
     t.add_player(b)
     t.display()
+    print(t.to_json())

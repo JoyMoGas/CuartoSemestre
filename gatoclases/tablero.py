@@ -2,7 +2,7 @@ from colorama import Fore, Back, Style, Cursor
 
 
 class Tablero:
-    def __init__(self, color_fondo, color_rayas, color_simbolos) -> None:
+    def __init__(self, color_fondo, color_rayas, color_simbolos, color_x, color_o) -> None:
         self.lista_numeros = [x for x in range(0,9)]
         self.dicc_posiciones = {x:str(x)for x in self.lista_numeros}
         self.combos_ganadores = [
@@ -17,17 +17,19 @@ class Tablero:
         ]
         self.color = {"rayas":color_rayas,
                     "fondo": color_fondo,
-                    "simbolos": color_simbolos}
+                    "numeros": color_numeros,
+                    "X": color_x,
+                    "O": color_o}
 
     def display(self):
         ##clear_screen()
         tablero = self.dicc_posiciones
         reset = Style.RESET_ALL
         bg = self.color["fondo"]#Back.WHITE
-        blue = self.color["simbolos"] #Fore.BLUE
+        blue = self.color["numeros"] #Fore.BLUE
         board_color = self.color["rayas"]
-        x_color = Fore.RED
-        o_color = Fore.GREEN
+        x_color = self.color["X"] #Fore.RED
+        o_color = self.color["O"]  #Fore.GREEN
         X = x_color + "X"
         O = o_color + "O"
         BD = board_color + "------"

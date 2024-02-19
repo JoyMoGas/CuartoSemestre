@@ -66,3 +66,11 @@ class Juego:
             jugar = False
             print("¡Gracias por jugar!")
         return jugar
+
+if __name__ == "__main__":
+    lista = ["X", "O"]
+    a = Jugador("Roberto", "X", lista)
+    b = Jugador("Francisco", "O", lista)
+    tab = Tablero()
+    juego = Juego(tab, a, b)
+    juego.inicia_juego()

@@ -28,3 +28,5 @@ if __name__ == "__main__":
     print(args.numeros)
     print(args.o)
     main(args.numeros, args.o)
+
+s

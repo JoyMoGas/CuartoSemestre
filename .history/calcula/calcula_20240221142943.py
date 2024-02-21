@@ -23,7 +23,7 @@ def moda(lista: list) -> int:
     dic = {x: 0 for x in lista}
     for x in lista:
         dic[x] += 1
-    m = max(dic, key=lambda key:dic[key])
+    m = max(dic, key=lambda key:dict[key])
     return m
 
 if __name__ == "__main__":

@@ -6,17 +6,9 @@ import argparse
 import calcula
 
 def main(listado: list, operacion: str):
-    operacion = operacion.lower()
-    if operacion == "suma":
-        print(f"Suma:{calcula.suma(listado)}")
-    if operacion == "promedio":
-        print(f"Promedio:{calcula.promedio(listado)}")
-    if operacion == "moda":
-        print(f"Moda:{calcula.moda(listado)}")
-    if operacion == "todas":
-        print(f"Suma:{calcula.suma(listado)}")
-        print(f"Promedio:{calcula.promedio(listado)}")
-        print(f"Moda:{calcula.moda(listado)}")
+    print(f"Suma:{calcula.suma(listado)}")
+    print(f"Promedio:{calcula.promedio(listado)}")
+    print(f"Moda:{calcula.moda(listado)}")
 
 if __name__ == "__main__":
     # declaramos nuestro "parser" o procesador de argumentos
@@ -28,3 +20,4 @@ if __name__ == "__main__":
     print(args.numeros)
     print(args.o)
     main(args.numeros, args.o)
+

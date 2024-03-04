@@ -77,7 +77,7 @@ def asigna_areas_a_revistas(d_revistas:dict, d_areas:dict):
             if r.titulo in d_areas:
                 areas = d_areas[r.titulo]
                 #print(f"revista:{type(revista)} : {revista}")
-                r.addArea(areas[0])
+                r.addArea(areas)
 
 
 def main(folder:str, folder_areas:str, keys:list):

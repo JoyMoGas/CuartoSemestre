@@ -28,15 +28,13 @@ def get_exchange_rate_dict(dom):
             if i == 0:
                 institucion = col.find(class_='small-hide')
                 institucion = institucion.text.strip()
-                dictionary[institucion] = {}
-            elif i == 3:
-                compra = col.text.strip()
-                dictionary[institucion]['compra'] = float(compra)
-            elif i == 4:
-                venta = col.text.strip()
-                dictionary[institucion]['venta'] = float(venta)
+                print(institucion)
+            if i == 2:
+                compra = col.find(class_='xTimes')
+                compra = compra.text.strip()
+                compra = float(compra)
+                print(compra)
             i += 1    
-    return dictionary
 
 def main():
     url="https://bit.ly/dolarInfo"
@@ -44,14 +42,7 @@ def main():
     soup = BeautifulSoup(pagina.content, "html.parser")
     table = soup.find(id='dllsTable')
     d = get_exchange_rate_dict(table)
-    
-    count = 0
-    for key, value in d.items():
-        print(f"{key}: {value}", end=' ')
-        count += 1
-        if count == 1:
-            print() 
-            count = 0 
+    print(d)
 
 if __name__ == "__main__":
     main()

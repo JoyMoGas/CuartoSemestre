@@ -49,9 +49,9 @@ def main():
     for key, value in d.items():
         print(f"{key}: {value}", end=' ')
         count += 1
-        if count == 1:
-            print() 
-            count = 0 
+        if count == 2:
+            print()  # print a new line
+            count = 0  # reset the counter
 
 if __name__ == "__main__":
     main()

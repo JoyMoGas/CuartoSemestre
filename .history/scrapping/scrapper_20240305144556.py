@@ -44,14 +44,7 @@ def main():
     soup = BeautifulSoup(pagina.content, "html.parser")
     table = soup.find(id='dllsTable')
     d = get_exchange_rate_dict(table)
-    
-    count = 0
-    for key, value in d.items():
-        print(f"{key}: {value}", end=' ')
-        count += 1
-        if count == 1:
-            print() 
-            count = 0 
+    print(d)
 
 if __name__ == "__main__":
     main()

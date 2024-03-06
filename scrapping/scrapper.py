@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrap(URL: str):
-    '''OBTIENE PAGINA DESDE INTERNET'''
     pagina = requests.get(URL)
     return pagina
 
@@ -36,7 +35,6 @@ def get_exchange_rate_dict(dom):
                 venta = col.text.strip()
                 dictionary[institucion]['venta'] = float(venta)
             i += 1    
-
     return dictionary
 
 def main():

@@ -16,7 +16,7 @@ def get_exchange_rate(dom):
             title = 'Venta'
         value = row.find('span')
         value = value.text.strip()
-        exchange_rates[title] = value
+        exchange_rates[title] = value # actualizamos dict
     return exchange_rates
 
 def get_exchange_rate_dict(dom):
@@ -60,8 +60,8 @@ def main():
         print(f"{key.upper()} -> Compra {compra if compra != float('inf') else 'N/A'} | Venta {venta if venta != float('inf') else 'N/A'}")
     
     if mejor_opcion is not None:
-        print("--------------------------------------")
-        print(f"La mejor opción es:\n{mejor_opcion.upper()} -> Compra {mejor_compra} | Venta {mejor_venta}")
+        print("----------------------------------")
+        print(f"LA MEJOR OPCION ES: {mejor_opcion.upper()} -> Compra {mejor_compra} | Venta {mejor_venta}")
 
 
 if __name__ == "__main__":

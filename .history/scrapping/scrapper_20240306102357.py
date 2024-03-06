@@ -16,7 +16,7 @@ def get_exchange_rate(dom):
             title = 'Venta'
         value = row.find('span')
         value = value.text.strip()
-        exchange_rates[title] = value
+        exchange_rates[title] = value # actualizamos dict
     return exchange_rates
 
 def get_exchange_rate_dict(dom):
@@ -46,22 +46,22 @@ def main():
     table = soup.find(id='dllsTable')
     d = get_exchange_rate_dict(table)
     
-    mejor_opcion = None
-    mejor_compra = float('inf')
-    mejor_venta = float('inf')
+    best_option = None
+    best_compra = float('inf')
+    best_venta = float('inf')
     
     for key, value in d.items():
         compra = value['compra'] if 'compra' in value else float('inf')
         venta = value['venta'] if 'venta' in value else float('inf')
-        if compra < mejor_compra and venta < mejor_venta:
-            mejor_opcion = key
-            mejor_compra = compra
-            mejor_venta = venta
+        if compra < best_compra and venta < best_venta:
+            best_option = key
+            best_compra = compra
+            best_venta = venta
         print(f"{key.upper()} -> Compra {compra if compra != float('inf') else 'N/A'} | Venta {venta if venta != float('inf') else 'N/A'}")
     
-    if mejor_opcion is not None:
-        print("--------------------------------------")
-        print(f"La mejor opción es:\n{mejor_opcion.upper()} -> Compra {mejor_compra} | Venta {mejor_venta}")
+    if best_option is not None:
+        print("----------------------------------")
+        print(f"LA MEJOR OPCION ES: {best_option} -> Compra {best_compra} | Venta {best_venta}")
 
 
 if __name__ == "__main__":

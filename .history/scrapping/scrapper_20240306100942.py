@@ -16,7 +16,7 @@ def get_exchange_rate(dom):
             title = 'Venta'
         value = row.find('span')
         value = value.text.strip()
-        exchange_rates[title] = value
+        exchange_rates[title] = value # actualizamos dict
     return exchange_rates
 
 def get_exchange_rate_dict(dom):
@@ -36,7 +36,6 @@ def get_exchange_rate_dict(dom):
                 venta = col.text.strip()
                 dictionary[institucion]['venta'] = float(venta)
             i += 1    
-
     return dictionary
 
 def main():
@@ -46,23 +45,15 @@ def main():
     table = soup.find(id='dllsTable')
     d = get_exchange_rate_dict(table)
     
-    mejor_opcion = None
-    mejor_compra = float('inf')
-    mejor_venta = float('inf')
-    
+    count = 0
     for key, value in d.items():
-        compra = value['compra'] if 'compra' in value else float('inf')
-        venta = value['venta'] if 'venta' in value else float('inf')
-        if compra < mejor_compra and venta < mejor_venta:
-            mejor_opcion = key
-            mejor_compra = compra
-            mejor_venta = venta
-        print(f"{key.upper()} -> Compra {compra if compra != float('inf') else 'N/A'} | Venta {venta if venta != float('inf') else 'N/A'}")
-    
-    if mejor_opcion is not None:
-        print("--------------------------------------")
-        print(f"La mejor opción es:\n{mejor_opcion.upper()} -> Compra {mejor_compra} | Venta {mejor_venta}")
-
+        compra = value['compra'] if 'compra' in value else 'N/A'
+        venta = value['venta'] if 'venta' in value else 'N/A'
+        print(f"{key}: Compra {compra} Venta {venta}", end=' ')
+        count += 1
+        if count == 1:
+            print() 
+            count = 0 
 
 if __name__ == "__main__":
     main()

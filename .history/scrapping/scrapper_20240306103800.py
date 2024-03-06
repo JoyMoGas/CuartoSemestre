@@ -61,7 +61,7 @@ def main():
     
     if mejor_opcion is not None:
         print("--------------------------------------")
-        print(f"La mejor opción es:\n{mejor_opcion.upper()} -> Compra {mejor_compra} | Venta {mejor_venta}")
+        print(f"LA MEJOR OPCION ES:\n{mejor_opcion.upper()} -> Compra {mejor_compra} | Venta {mejor_venta}")
 
 
 if __name__ == "__main__":

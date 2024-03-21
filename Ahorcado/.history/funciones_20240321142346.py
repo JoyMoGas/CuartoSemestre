@@ -22,3 +22,6 @@ if __name__ == "__main__":
     palabra = random.choice(palabras)
     dp = palabra_a_diciconario(palabra)
     print(dp)
+    xd = (", ".join(map(str, dp)))
+    print(xd)
+    print('\n'.join("{}: {}".format(k, v) for k, v in xd))

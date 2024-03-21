@@ -9,7 +9,7 @@ def lee_archivo(archivo:str):
             palabras.append(palabra)
     return palabras
 
-def palabra_a_diciconario(palabra:str)->list:
+def palabra_a_diciconario(palabra:str)->dict:
     '''Convierte palabra en un diccionario de letras'''
     lista = [ {letra: "_"} for letra in palabra ]
     return lista

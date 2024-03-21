@@ -11,19 +11,12 @@
             <div>
                 <img src='{{imagen}}' alt="Juego ahorcado">
             </div>
-            <div>{%- for val in lista_pal -%}
+            <div>{%- for val in lista_pal%}
                     {%- for keys in val -%}
                     <div>{{ val[keys]}}</div>
                     {%- endfor -%}
+                
                 {%- endfor -%}
-            </div>
-            <div>
-                <form action="{{ request.base_url }}" method="post">
-                    <div>
-                        {% from "dropdown.html" import dropdown %}
-                        {{ dropdown('valor', lista_abc) }}
-                        <button type="submit">Enviar</button>
-                    </div>
             </div>
         </div>
     </body>

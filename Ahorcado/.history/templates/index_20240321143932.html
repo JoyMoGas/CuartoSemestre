@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ahorcado</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                {{abcedario}}
+            </div>
+            <div>
+                <img src='{{imagen}}' alt="Juego ahorcado">
+            </div>
+            <div>{%- for val in lista_pal%}
+                {%- for keys in val -%}
+                <div>{{ val[keys]}}</div>
+                {%- endfor -%}
+                <div>{{ val }}</div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </body>
+</html>

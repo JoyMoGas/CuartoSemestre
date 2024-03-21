@@ -11,14 +11,12 @@
             <div>
                 <img src='{{imagen}}' alt="Juego ahorcado">
             </div>
-            <div>
-                {%- for val in lista_pal %}
-                    {%- for keys in val %}
-                        {{ val[keys] }}
+            <div>{%- for val in lista_pal -%}
+                    {%- for keys in val -%}
+                    {{val[keys]}}
                     {%- endfor -%}
                 {%- endfor -%}
             </div>
-            <br>
             <div>
                 <form action="{{ request.base_url }}" method="post">
                     <div>

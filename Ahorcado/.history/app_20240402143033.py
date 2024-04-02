@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from os import path
-from funciones import lee_archivo, palabra_a_diccionario, checa_si_gano
+from funciones import lee_archivo, palabra_a_diccionario
 import random 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ lista_dict = palabra_a_diccionario(palabra)
 conteo = 0
 lista_dict 
 abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-letras = [ x.lower() for x in abc]
+letras = [ x for x in abc]
 @app.route('/', methods=['GET','POST'])
 def index():
     global conteo
@@ -28,7 +28,6 @@ def index():
                                abcedario=string_abc,
                                lista_pal=lista_dict)
     if request.method == 'POST':
-        gana = False
         valor = request.form['valor']
         valor = valor.lower()
         existe = False
@@ -40,14 +39,8 @@ def index():
         if existe == False:
             conteo +=1
 
-        gana = checa_si_gano(lista_dict)
-
-        if gana == True:
-            fin = True
-        if conteo == 6:
-            fin = True
-        image = f"/static/images/monito-{conteo}.png"
         letras.remove(valor)
+        image = f"/static/images/monito-{conteo}.png"
         string_abc = "".join(letras)
         lista_letras = [ {'letra':x, 'id_letra':x} for x in string_abc]
         listado = [(d['letra'],d['id_letra']) for d in lista_letras]

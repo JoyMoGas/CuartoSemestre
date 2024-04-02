@@ -33,7 +33,3 @@ if __name__ == "__main__":
     palabra = random.choice(palabras)
     dp = palabra_a_diccionario(palabra)
     print(dp)
-    gat_ = [ {'g':'g'}, {'a':'a'}, {'t':'t'}, {'o':'_'}]
-    gato = [ {'g':'g'}, {'a':'a'}, {'t':'t'}, {'o':'o'}]
-    print(checa_si_gano(gat_))
-    print(checa_si_gano(gato))

@@ -18,7 +18,7 @@ def peliculas_mas_recientes(lista_peliculas: str) -> list:
         estreno = pelicula['fecha_estreno']
         estreno = datetime.strptime(estreno, "%Y/%m/%d")
         diferencia = hoy - estreno
-        pelicula['dias_desde_estreno'] = diferencia.days()
+        pelicula['dias_desde_estreno'] = diferencia.days
         lista_sorted = sorted(lista_peliculas, key=lambda x: x['dias_desde_estreno'], reverse=False)
         listap = lista_sorted[:5]
         return listap

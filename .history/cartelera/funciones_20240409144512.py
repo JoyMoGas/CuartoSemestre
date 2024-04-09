@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime
+import datetime
 
 def carga_csv(nombre_archivo: str) -> list:
     '''
@@ -19,13 +19,13 @@ def peliculas_mas_recientes(lista_peliculas: str) -> list:
         estreno = datetime.strptime(estreno, "%Y/%m/%d")
         diferencia = hoy - estreno
         pelicula['dias_desde_estreno'] = diferencia.days()
-        lista_sorted = sorted(lista_peliculas, key=lambda x: x['dias_desde_estreno'], reverse=False)
-        listap = lista_sorted[:5]
+        lista_peliculas.sort(key=lambda x: x['dias_desde_estreno'])
+        for i, pelicula in enumerate(lista_peliculas):
+            if i<5:
+                listap.append(pelicula)
+
         return listap
 
 if __name__ == "__main__":
     lista = carga_csv("cartelera_2024.csv")
     #print(lista)
-    lista = peliculas_mas_recientes(lista)
-    for i in lista:
-        print(i)

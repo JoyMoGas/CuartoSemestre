@@ -3,7 +3,7 @@
 {% block head %}
 {{ super }}
 {% endblock head %}
-{% block body %}
+
 
 <div>
     <div>
@@ -14,7 +14,7 @@
         <h2>{{ movie['titulo']}}</h2>
         <h5>Estreno: {{ movie['fecha_estreno']}}</h5>
         <h6>Géneros: {{ movie['genero']}}</h6>
-        <p class="sinopsis">{{ movie['sinopsis']}}</p>
+        <p>{{ movie['sinopsis']}}</p>
     </div>
 </div>
-{%endblock%}
+{% block body %}

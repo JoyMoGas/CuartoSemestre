@@ -29,7 +29,7 @@ def alfabetico():
 def pelicula(id:str):
     if id in diccionario_peliculas:
         pelicula = diccionario_peliculas[id]
-        return render_template("pelicula.html",movie=pelicula)
+        return render_template("pelicula.html", movie=pelicula)
     else:
         return render_template("no_existe.html")
 

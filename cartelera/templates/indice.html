@@ -7,12 +7,9 @@
 <div>
     <h1>Cartelera de CINEMOVIE</h1>
     <h2>Las próximas peliculas a ver</h2>
-    <div id="CarouselCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div>
         {% for pelicula in lista %}
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#CarouselCaptions" data-bs-slide-to="{{loop.index}}" 
-            class="active" aria-current="true" aria-labels="{{pelicula['titulo']}}"></button>
-            <>
+        <div>
             <a href="/pelicula/{{pelicula['id']}}" class="titulo">
                 <img src="{{pelicula['url_poster']}}" width="150">
                 {{pelicula['titulo']}}

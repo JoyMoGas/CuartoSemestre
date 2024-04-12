@@ -27,7 +27,7 @@ def generos():
 def genero():
     return render_template("genero.html")
 
-@app.route("/anios")
+@app.route("/anio")
 def anio():
     return render_template("anio.html", dicc_anios=diccionario_anios)
 

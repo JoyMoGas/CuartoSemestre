@@ -64,7 +64,8 @@ def crea_diccionario_anios(lista_peliculas:list) -> dict:
         keys = keys.upper()
         keys = keys.split(",")
         for key in keys:
-            
+            d[key].append(pelicula)
+        else:
             d[key] = [pelicula]
     d = {k: v for k, v in sorted(d.items(), key=lambda item: item[0])}
     return d

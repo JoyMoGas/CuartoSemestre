@@ -59,12 +59,13 @@ def crea_diccionario_genero(lista_peliculas:list)->dict:
 def crea_diccionario_anios(lista_peliculas:list) -> dict:
     d = {}
     for pelicula in lista_peliculas:
-        keys = pelicula["fecha_estreno"]
+        keys = pelicula["año"]
         keys = unicodedata.normalize('NFD', keys).encode('ascii', 'ignore').decode('utf-8')
         keys = keys.upper()
         keys = keys.split(",")
         for key in keys:
-            
+            d[key].append(pelicula)
+        else:
             d[key] = [pelicula]
     d = {k: v for k, v in sorted(d.items(), key=lambda item: item[0])}
     return d

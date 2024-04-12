@@ -2,16 +2,13 @@ from flask import Flask, render_template, request
 from funciones import carga_csv, peliculas_mas_recientes
 from funciones import crea_diccionario_peliculas
 from funciones import crea_diccionario_genero
-from funciones import crea_diccionario_anios
 import os
-
 
 archivo_cartelera = 'cartelera_2024.csv'
 app = Flask(__name__)
 cartelera = carga_csv(archivo_cartelera)
 diccionario_peliculas=crea_diccionario_peliculas(cartelera)
 diccionario_generos = crea_diccionario_genero(cartelera)
-diccionario_anios = crea_diccionario_anios(cartelera)
 
 @app.route("/")
 def index():
@@ -23,13 +20,9 @@ def index():
 def generos():
     return render_template("generos.html",dicc_generos=diccionario_generos)
 
-@app.route("/genero")
-def genero():
-    return render_template("genero.html")
-
-@app.route("/anios")
+@app.route("/anio")
 def anio():
-    return render_template("anio.html", dicc_anios=diccionario_anios)
+    return render_template("anio.html")
 
 @app.route("/alfabetico")
 def alfabetico():

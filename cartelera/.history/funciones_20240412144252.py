@@ -62,9 +62,10 @@ def crea_diccionario_anios(lista_peliculas:list) -> dict:
         keys = pelicula["fecha_estreno"]
         keys = unicodedata.normalize('NFD', keys).encode('ascii', 'ignore').decode('utf-8')
         keys = keys.upper()
-        keys = keys.split(",")
+        #keys = keys.split("/")
         for key in keys:
-            
+            d[key].append(pelicula)
+        else:
             d[key] = [pelicula]
     d = {k: v for k, v in sorted(d.items(), key=lambda item: item[0])}
     return d

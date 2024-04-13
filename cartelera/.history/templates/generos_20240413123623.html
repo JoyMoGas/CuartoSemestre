@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<style>
+    /* Estilos CSS para la lista desplegable */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Cartelera de CINEMOVIE</h1>
+    <h2>Las próximas películas a ver</h2>
+    <h3>Ordenadas por género</h3>
+    <!-- Lista desplegable de géneros -->
+    <div class="dropdown">
+        <button class="dropbtn">Seleccionar Género</button>
+        <div class="dropdown-content">
+            {% for genero, lista_peliculas in dicc_generos.items() %}
+            <a href="/genero/{{ genero }}" class="link-secondary">{{ genero }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Fin de lista desplegable de géneros -->
+    <table class="table table-striped">
+        <thead>
+            <th>Fecha de Estreno</th>
+            <th>Título</th>
+            <th>Poster</th>
+        </thead>
+        <tbody>
+            {% for genero, lista_peliculas in dicc_generos.items() %}
+            {% for pelicula in lista_peliculas %}
+            <tr>
+                <td>{{ pelicula['fecha_estreno'] }}</td>
+                <td><a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">{{ pelicula['titulo'] }}</a></td>
+                <td>
+                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                        <img src="{{ pelicula['url_poster'] }}" style="width:100px;" alt="Poster de {{ pelicula['titulo'] }}">
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+{% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="static/estilo.css" />
+{% endblock %} 
+{% block body %}
+
+<div>
+  <h1>Cartelera de CINEMOVIE</h1>
+  <h3>Ordenadas por año de lanzamiento</h3>
+
+  <div class="dropdown">
+    <button class="dropbtn">
+      &#9660;
+      Seleccionar Año
+    </button>
+    <div class="dropdown-content">
+      {% for anio, lista_peliculas in dicc_anios|dictsort(reverse=true) %}
+        <a href="#{{ anio }}" class="link-secondary">{{ anio[:4] }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <th>Año de Lanzamiento</th>
+    </thead>
+    <tbody>
+      {% for anio, lista_peliculas in dicc_anios|dictsort(reverse=true) %}
+      <tr id="{{ anio }}"> <!-- Agrega un id único para cada año -->
+        <td>
+          <a href="#{{ anio }}" class="link-secondary">{{ anio[:4] }}</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <table class="table mb-0">
+            <thead>
+              <th>Fecha de Estreno</th>
+              <th>Título</th>
+              <th>Poster</th>
+            </thead>
+            <tbody>
+              {% for pelicula in lista_peliculas %}
+              <tr>
+                <td>{{ pelicula['fecha_estreno'] }}</td>
+                <td>
+                  <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                    {{ pelicula['titulo'] }}
+                  </a>
+                </td>
+                <td>
+                  <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                    <img src="{{ pelicula['url_poster'] }}" style="width: 100px" />
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="#top" id="floatingBtn" title="Go to top">To Top</a>
+</div>
+
+{% endblock %}

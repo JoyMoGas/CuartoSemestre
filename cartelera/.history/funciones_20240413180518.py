@@ -72,19 +72,18 @@ def crea_diccionario_anios(lista_peliculas:list) -> dict:
     return d
 
 def crea_diccionario_alfabeto(lista_peliculas:list) -> dict:
+    ''' Crea un diccionario de años a partir de la lista de películas.
+        Devuelve un diccionario donde las claves son los años de lanzamiento y los valores son listas de películas correspondientes a cada año.
+    '''
     d = {}
     for pelicula in lista_peliculas:
-        keys = pelicula["titulo"]
-        keys = unicodedata.normalize('NFD', keys).encode('ascii', 'ignore').decode('utf-8')
-        keys = keys.upper()
-        keys = keys.split(",")
-        for key in keys:
-            key = key.strip()
-            if key in d:
-                d[key].append(pelicula)
-            else:
-                d[key] = [pelicula]
-    d = {k: v for k, v in sorted(d.items(), key=lambda item: item[0])}
+        anio = pelicula["fecha_estreno"][:4]  # Obtener solo el año de la fecha de estreno
+        if anio in d:
+            d[anio].append(pelicula)
+        else:
+            d[anio] = [pelicula]
+    for anio, peliculas in d.items():
+        d[anio] = sorted(peliculas, key=lambda x: datetime.strptime(x['fecha_estreno'], "%Y/%m/%d"))
     return d
 
 if __name__ == "__main__":

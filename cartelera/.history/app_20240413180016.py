@@ -3,7 +3,6 @@ from funciones import carga_csv, peliculas_mas_recientes
 from funciones import crea_diccionario_peliculas
 from funciones import crea_diccionario_genero
 from funciones import crea_diccionario_anios
-from funciones import crea_diccionario_alfabeto
 import os
 
 
@@ -13,7 +12,7 @@ cartelera = carga_csv(archivo_cartelera)
 diccionario_peliculas=crea_diccionario_peliculas(cartelera)
 diccionario_generos = crea_diccionario_genero(cartelera)
 diccionario_anios = crea_diccionario_anios(cartelera)
-diccionario_alfabeto = crea_diccionario_alfabeto(cartelera)
+
 
 @app.route("/")
 def index():
@@ -25,7 +24,7 @@ def index():
 def generos():
     return render_template("generos.html",dicc_generos=diccionario_generos)
 
-@app.route("/genero/<genero>")
+@app.route("/genero/{{genero}}")
 def genero():
     return render_template("genero.html", dicc_generos=diccionario_generos)
 
@@ -35,7 +34,7 @@ def anio():
 
 @app.route("/alfabetico")
 def alfabetico():
-    return render_template("alfabetico.html", dicc_alfabetico=diccionario_alfabeto)
+    return render_template("alfabeto.html", dicc_alfabetico=diccionario_generos)
 
 @app.route("/pelicula/<id>")
 def pelicula(id:str):

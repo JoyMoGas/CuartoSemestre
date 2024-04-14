@@ -74,7 +74,7 @@ def crea_diccionario_anios(lista_peliculas:list) -> dict:
 def crea_diccionario_alfabeto(lista_peliculas:list) -> dict:
     d = {}
     for pelicula in lista_peliculas:
-        keys = pelicula["titulo"]
+        keys = pelicula["genero"]
         keys = unicodedata.normalize('NFD', keys).encode('ascii', 'ignore').decode('utf-8')
         keys = keys.upper()
         keys = keys.split(",")

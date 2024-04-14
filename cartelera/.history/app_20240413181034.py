@@ -35,7 +35,7 @@ def anio():
 
 @app.route("/alfabetico")
 def alfabetico():
-    return render_template("alfabetico.html", dicc_alfabetico=diccionario_alfabeto)
+    return render_template("generos.html", dicc_alfabetico=diccionario_alfabeto)
 
 @app.route("/pelicula/<id>")
 def pelicula(id:str):

@@ -1,0 +1,104 @@
+{% extends "base.html" %} {% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="static/estilo.css" />
+<style>
+    .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #dedede;
+}
+.dropbtn {
+    background-color: #ffffff;
+    color: #464d54;
+    border: none;
+    border-radius: 2px;
+}
+
+tbody tr:target {
+    scroll-margin-top: 20vh; 
+}
+#floatingBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #212529; 
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#floatingBtn:hover {
+    background-color: #c7c8c9;
+}
+</style>
+{% endblock %} {% block body %}
+
+<div>
+    <h1>Cartelera de CINEMOVIE - {{ genero }}</h1>
+
+    <div class="dropdown">
+        <button class="dropbtn">Seleccionar Género &#9660;</button>
+        <div class="dropdown-content">
+            {% for gen, lista_peliculas in dicc_generos.items() %}
+            <a href="/genero/{{ gen }}" class="link-secondary">{{ gen }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <th>Fecha de Estreno</th>
+            <th>Título</th>
+            <th>Poster</th>
+        </thead>
+        <tbody>
+            {% for pelicula in lista_peliculas %}
+            <tr>
+                <td>{{ pelicula['fecha_estreno'] }}</td>
+                <td>
+                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                        {{ pelicula['titulo'] }}
+                    </a>
+                </td>
+                <td>
+                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                        <img src="{{ pelicula['url_poster'] }}" style="width: 100px" />
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="#top" id="floatingBtn" title="Go to top">To Top</a>
+</div>
+{% endblock %}

@@ -9,7 +9,11 @@ def carga_csv(nombre_archivo:str)->list:
     lista = []
     with open(nombre_archivo,'r',encoding="utf-8") as archivo:
         lista = list(csv.DictReader(archivo))
+        # Asegurarse de que cada película tenga un campo 'url_pelicula'
+        for pelicula in lista:
+            pelicula['url_pelicula'] = obtener_enlace_pelicula_desde_csv(pelicula)  # Reemplaza esto con la función real para obtener el enlace de la película
     return lista
+
 
 def peliculas_mas_recientes(lista_peliculas:list)->list:
     '''Regresa las películas de más reciente estreno'''

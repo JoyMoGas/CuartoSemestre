@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} {{ genero }} - Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="static/estilo.css" />
+{% endblock %}
+{% block body %}
+
+<div>
+    <h1>Cartelera de CINEMOVIE - {{ genero }}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <th>Fecha de Estreno</th>
+            <th>Título</th>
+            <th>Poster</th>
+        </thead>
+        <tbody>
+            {% for pelicula in lista_peliculas %}
+            <tr>
+                <td>{{ pelicula['fecha_estreno'] }}</td>
+                <td>
+                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                        {{ pelicula['titulo'] }}
+                    </a>
+                </td>
+                <td>
+                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                        <img src="{{ pelicula['url_poster'] }}" style="width: 100px" />
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="#top" id="floatingBtn" title="Go to top">To Top</a>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} {{ movie['titulo']}} {% endblock %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="card" style="width: 18rem;">
+    
+        <img src="{{movie['url_poster']}}" width="150">
+    
+    <div class="card-body">
+        <h5 class="card-title">{{ movie['titulo']}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Estreno: {{ movie['fecha_estreno']}}</h6>
+        <h6 class="card-subtitle">
+            Géneros:
+            <a href="genero/{{ genero }}" class="link-secondary">{{ movie['genero']}}</a>
+
+        </h6>
+        <p  class="card-text">{{movie['sinopsis']}}</p>
+    </div>
+</div>
+{% endblock %}

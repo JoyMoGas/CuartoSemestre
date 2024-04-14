@@ -4,7 +4,6 @@ from funciones import crea_diccionario_peliculas
 from funciones import crea_diccionario_genero
 from funciones import crea_diccionario_anios
 from funciones import crea_diccionario_alfabeto
-import unicodedata
 import os
 
 
@@ -37,28 +36,21 @@ def alfabetico():
     return render_template("alfabetico.html", dicc_alfabetico=diccionario_alfabeto)
 
 @app.route("/genero/<genero>")
-def solo_genero(genero):
-    if genero in diccionario_generos:
-        lista_peliculas = diccionario_generos[genero]
-        return render_template("solo_genero.html", genero=genero, lista_peliculas=lista_peliculas, dicc_generos=diccionario_generos)
+def genero(genero:str):
+    if genero in diccionario_peliculas:
+        genero = diccionario_peliculas[genero]
+        return render_template("solo_genero.html", gender=genero)
     else:
         return render_template("no_existe.html")
-
-
 
 @app.route("/pelicula/<id>")
 def pelicula(id:str):
     if id in diccionario_peliculas:
-        pelicula = diccionario_peliculas[id]
-        generos_pelicula = pelicula.get('genero', '').split(',')
-        generos_pelicula = [unicodedata.normalize('NFKD', genero.strip().upper()).encode('ASCII', 'ignore').decode('utf-8') for genero in generos_pelicula]
-        return render_template("movie.html", movie=pelicula, generos_pelicula=generos_pelicula)
+        pelicula = diccionario_peliculas[id]  
+        print(f"movie={pelicula['titulo']}")  
+        return render_template("movie.html",movie=pelicula)
     else:
         return render_template("no_existe.html")
-
-
-
-
     
 if __name__ == "__main__":
     app.run(debug=True)

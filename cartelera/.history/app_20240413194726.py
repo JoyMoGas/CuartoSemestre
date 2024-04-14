@@ -51,10 +51,13 @@ def pelicula(id:str):
     if id in diccionario_peliculas:
         pelicula = diccionario_peliculas[id]
         generos_pelicula = pelicula.get('genero', '').split(',')
-        generos_pelicula = [unicodedata.normalize('NFKD', genero.strip().upper()).encode('ASCII', 'ignore').decode('utf-8') for genero in generos_pelicula]
+        generos_pelicula = [genero.strip().upper().replace(' ', '_') for genero in generos_pelicula]
+        # Añadir el enlace de la película al diccionario de la película
+        pelicula['url_pelicula'] = obtener_enlace_pelicula_desde_csv(pelicula)  # Reemplaza esto con la función real para obtener el enlace de la película
         return render_template("movie.html", movie=pelicula, generos_pelicula=generos_pelicula)
     else:
         return render_template("no_existe.html")
+
 
 
 

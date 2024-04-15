@@ -1,0 +1,9 @@
+.navbar-custom {
+    background-color: #3e4533; /* Color de fondo personalizado */
+    color: #e8de96; /* Color de texto personalizado */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+    color: #e8de96; /* Color de texto para enlaces */
+}

@@ -1,0 +1,74 @@
+/* estilo_navbar.css */
+.navbar-custom {
+    background-color: #3e4533; /* Color de fondo personalizado */
+    color: #e8de96; /* Color de texto personalizado */
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 10px 0; /* Espacio interno superior e inferior */
+}
+
+.navbar-custom .container-fluid {
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+    max-width: 1200px; /* Anchura máxima del contenedor */
+    margin: auto; /* Centra el contenedor */
+}
+
+.navbar-custom .navbar-brand {
+    font-family: 'Arial Rounded MT Bold', sans-serif; /* Fuente para el nombre de la marca */
+    font-size: 28px; /* Tamaño de fuente para el nombre de la marca */
+    color: #e8de96; /* Color de texto para el nombre de la marca */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.navbar-custom .navbar-nav {
+    display: flex; /* Utiliza flexbox */
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom .nav-item {
+    font-family: 'Arial', sans-serif; /* Fuente para los elementos de navegación */
+    font-size: 18px; /* Tamaño de fuente para los elementos de navegación */
+    margin-right: 20px; /* Espacio entre elementos de navegación */
+}
+
+.navbar-custom .nav-item:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.navbar-custom .nav-item a {
+    text-decoration: none;
+    color: #e8de96; /* Color de texto para enlaces */
+}
+
+.navbar-custom .nav-item a:hover {
+    color: #fff; /* Cambia el color de texto al pasar el mouse */
+}
+
+.larger-text{
+    font-size: 2rem;
+}   
+
+.navbar-custom .navbar-nav li {
+    font-family: 'Arial', sans-serif; /* Fuente para los elementos de navegación */
+    font-size: 18px; /* Tamaño de fuente para los elementos de navegación */
+    margin-right: 20px; /* Espacio entre elementos de navegación */
+}
+
+.navbar-custom .navbar-nav li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.navbar-custom .navbar-nav li a {
+    text-decoration: none;
+    color: #fff; /* Color de texto para enlaces */
+}
+
+.navbar-custom .navbar-nav li a:hover {
+    color: #fff; /* Cambia el color de texto al pasar el mouse */
+}

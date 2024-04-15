@@ -23,30 +23,21 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <a href="/">
-                <img src="/static/images/logo.png" alt="Logotipo">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/generos">Géneros</a></li>
-                <li><a href="/anios">Años</a></li>
-                <li><a href="/alfabetico">Alfabético</a></li>
-            </ul>            
+    <div>
+        <nav class="navbar">
+            <ul class="navbar-elements">
+                <li><a href="default.asp">Home</a></li>
+                <li><a href="news.asp">News</a></li>
+                <li><a href="contact.asp">Contact</a></li>
+                <li><a href="about.asp">About</a></li>
+            </ul>
         </nav>
-    </header>
-    {% block body %}
-
-    {% endblock %}
-    <footer>
-        {% block footer %}
-        <div>MoGasCine (C) 2024 Todos los derechos <br>
-            2022-2024
-        </div>
-        {% endblock %}
-    </footer>
+    </div>
+    {% block body %} {% endblock %}
 </body>
+<footer>
+    {% block footer %}
+    <div>CINEMOVIE (C) 2024 Todos los derechos</div>
+    {% endblock %}
+</footer>
 </html>

@@ -1,0 +1,53 @@
+.navbar-custom {
+    background-color: #3e4533; /* Color de fondo personalizado */
+    color: #e8de96; /* Color de texto personalizado */
+
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    position: fixed;
+    float: left;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav {
+    color: #e8de96; /* Color de texto para enlaces */
+}
+
+.larger-text {
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+}
+
+.smaller-text {
+    font-size: 1em; /* Tamaño de fuente normal */
+}
+
+.nav-link {
+    color: #fefffa; /* Color de texto para enlaces */
+}
+
+ul li nav-item {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 20px;
+}
+
+.ul-navbar-nav ml-auto mb-2 mb-lg-0 {
+    list-style: none;
+    overflow: hidden; 
+}
+
+div ul li {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 20px;
+
+    nav ul li a {
+        display: block; 
+        padding: 20px;
+        color: #fff;
+        text-decoration: none;
+}
+
+div ul li:hover {
+    background: #eca023;

@@ -25,28 +25,22 @@
 <body>
     <header class="header">
         <div class="logo">
-            <a href="/">
-                <img src="/static/images/logo.png" alt="Logotipo">
-            </a>
+            <img src="/static/images/logo.png" alt="Logo de la marca">
         </div>
         <nav>
-            <ul class="nav-links">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/generos">Géneros</a></li>
-                <li><a href="/anios">Años</a></li>
-                <li><a href="/alfabetico">Alfabético</a></li>
-            </ul>            
+           <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Géneros</a></li>
+                <li><a href="#">Años</a></li>
+                <li><a href="#">Alfabético</a></li>
+           </ul>            
         </nav>
     </header>
-    {% block body %}
-
-    {% endblock %}
-    <footer>
-        {% block footer %}
-        <div>MoGasCine (C) 2024 Todos los derechos <br>
-            2022-2024
-        </div>
-        {% endblock %}
-    </footer>
+    {% block body %} {% endblock %}
 </body>
+<footer>
+    {% block footer %}
+    <div>CINEMOVIE (C) 2024 Todos los derechos</div>
+    {% endblock %}
+</footer>
 </html>

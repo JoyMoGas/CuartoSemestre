@@ -1,0 +1,37 @@
+/* estilo_navbar.css */
+.navbar-custom {
+    background-color: #3e4533; /* Color de fondo personalizado */
+    color: #e8de96; /* Color de texto personalizado */
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.navbar-custom .container-fluid {
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    align-items: left; /* Centra verticalmente los elementos */
+}
+
+.navbar-custom .navbar-nav {
+    display: flex; /* Utiliza flexbox */
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom .nav-item {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-right: 10px; /* Espacio entre elementos de navegación */
+}
+
+.navbar-custom .nav-item a {
+    text-decoration: none;
+    color: #e8de96; /* Color de texto para enlaces */
+}
+
+.navbar-custom .nav-item a:hover {
+    color: #fff; /* Cambia el color de texto al pasar el mouse */
+}

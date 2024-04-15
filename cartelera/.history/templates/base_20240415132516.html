@@ -28,6 +28,7 @@
             <a href="/">
                 <img src="/static/images/logo.png" alt="Logotipo">
             </a>
+            
         </div>
         <nav>
             <ul class="nav-links">
@@ -38,15 +39,13 @@
             </ul>            
         </nav>
     </header>
-    {% block body %}
-
-    {% endblock %}
-    <footer>
-        {% block footer %}
-        <div>MoGasCine (C) 2024 Todos los derechos <br>
-            2022-2024
-        </div>
-        {% endblock %}
-    </footer>
+    {% block body %} {% endblock %}
 </body>
+<footer>
+    {% block footer %}
+    <div>MoGasCine (C) 2024 Todos los derechos <br>
+        2022-2024
+    </div>
+    {% endblock %}
+</footer>
 </html>

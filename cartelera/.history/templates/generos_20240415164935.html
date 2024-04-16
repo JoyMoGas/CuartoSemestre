@@ -1,0 +1,77 @@
+{% extends "base.html" %} 
+{% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="static/estilo.css" />
+<style>
+    .movie-details {
+        display: none; /* Oculta los detalles de las películas por defecto */
+    }
+</style>
+{% endblock %} 
+{% block body %}
+<div id="content">
+  <h1>Cartelera de CINEMOVIE</h1>
+  <h3>Explora los géneros de películas</h3>
+
+  <div class="dropdown">
+    <button class="dropbtn">Lista de Género &#9660;</button>
+    <div class="dropdown-content">
+      {% for genero, lista_peliculas in dicc_generos.items() %}
+      <a href="/genero/{{ genero }}" class="link-secondary">{{ genero }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    </thead>
+    <tbody>
+      {% for genero,lista_peliculas in dicc_generos.items() %}
+      <tr>
+        <td>
+          <a href="/genero/{{genero}}" class="link-secondary">{{genero}}</a>
+          <button class="toggle-movie-details">Mostrar películas</button>
+        </td>
+      </tr>
+      <tr class="movie-details">
+        <td colspan="3">
+          <table class="table mb-0">
+            <thead>
+              <th>Poster</th>
+              <th>Título</th>
+              <th>Fecha de Estreno</th>
+            </thead>
+            <tbody>
+              {% for pelicula in lista_peliculas %}
+              <tr>
+                <td>
+                  <img src="{{pelicula['url_poster']}}" style="width: 100px;" />
+                </td>
+                <td>
+                  <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">{{pelicula['titulo']}}</a>
+                </td>
+                <td>{{pelicula['fecha_estreno']}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+
+  <script>
+    var toggleButtons = document.querySelectorAll('.toggle-movie-details');
+
+    toggleButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var detailsRow = this.closest('tr').nextElementSibling; // Encuentra el siguiente tr después del tr padre
+            detailsRow.classList.toggle('show'); // Alternar la clase para mostrar u ocultar los detalles
+        });
+    });
+  </script>
+
+</div>
+{% endblock %}

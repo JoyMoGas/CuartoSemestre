@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+    <link rel="stylesheet" href="/static/estilo_navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Estilos previamente definidos */
+        .content {
+            margin-left: 0; /* Ajustar margen izquierdo cuando el menú lateral está cerrado */
+            transition: margin-left 0.3s; /* Agregar transición para una animación suave */
+        }
+
+        .sidebar-nav {
+            height: 100%; /* Ocupar toda la altura disponible */
+            width: 0; /* Inicialmente oculto */
+            position: fixed; /* Fijar la posición */
+            top: 0; /* Ajustar a la parte superior */
+            left: 0; /* Ajustar a la izquierda */
+            background-color: #111; /* Color de fondo del menú lateral */
+            overflow-x: hidden; /* Ocultar desplazamiento horizontal */
+            padding-top: 60px; /* Espacio para el contenido debajo de la barra superior */
+            transition: 0.5s; /* Agregar transición para una animación suave */
+        }
+
+        .sidebar-nav ul {
+            padding: 0; /* Eliminar el relleno predeterminado */
+            margin: 0; /* Eliminar el margen predeterminado */
+            list-style: none; /* Quitar los marcadores de lista */
+        }
+
+        .sidebar-nav li {
+            padding: 8px 15px; /* Espaciado interno */
+            text-decoration: none; /* Quitar subrayado de enlace */
+            font-size: 20px; /* Tamaño de fuente */
+            color: #818181; /* Color del texto */
+            display: block; /* Mostrar en bloque */
+            transition: 0.3s; /* Agregar transición para una animación suave */
+        }
+
+        .sidebar-nav li:hover {
+            color: #f1f1f1; /* Cambiar color del texto al pasar el cursor */
+        }
+
+        .sidebar-nav .close-btn {
+            position: absolute; /* Posicionamiento absoluto */
+            top: 0; /* Ajustar a la parte superior */
+            right: 25px; /* Ajustar a la derecha */
+            font-size: 36px; /* Tamaño de fuente */
+            margin-left: 50px; /* Ajustar margen izquierdo para el ícono */
+            text-decoration: none; /* Quitar subrayado de enlace */
+            color: #818181; /* Color del texto */
+            transition: 0.3s; /* Agregar transición para una animación suave */
+        }
+
+        .sidebar-nav .close-btn:hover {
+            color: #f1f1f1; /* Cambiar color del texto al pasar el cursor */
+        }
+
+        .open {
+            width: 250px; /* Ancho cuando está abierto */
+        }
+
+        .content-push {
+            margin-left: 250px; /* Empujar el contenido principal cuando el menú lateral está abierto */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar superior -->
+    <header class="header" >
+        <div class="logo">
+            <a href="/">
+                <img src="/static/images/logo.png" alt="Logotipo">
+            </a>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/generos">Géneros</a></li>
+                <li><a href="/anios">Años</a></li>
+                <li><a href="/alfabetico">Alfabético</a></li>
+            </ul>            
+        </nav>
+    </header>
+
+    <!-- Botón para abrir la navbar lateral -->
+    <div class="content-push">
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
+        <input type="checkbox" id="btn-nav">
+    </div>
+
+    <!-- Navbar lateral -->
+    <div class="sidebar-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Servicios</a></li>
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        {% block body %}
+        <!-- Contenido principal de tu página -->
+        {% endblock %}
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        {% block footer %}
+        <div>MoGasCine (C) 2024 Todos los derechos <br>
+            2022-2024
+        </div>
+        {% endblock %}
+    </footer>
+
+    <!-- Script para abrir/cerrar la navbar lateral -->
+    <script>
+        function closeNav() {
+            document.getElementById("btn-nav").checked = false;
+        }
+    </script>
+</body>
+</html>

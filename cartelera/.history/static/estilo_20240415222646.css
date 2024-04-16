@@ -293,7 +293,22 @@ body {
     background-color: #bcbb9b;
 }
 
+.carousel {
+    transition: transform 0.6s ease;
+}
+
+.carousel-inner {
+    overflow: hidden;
+    position: relative;
+}
+
 .carousel-item {
-    transition: transform 2s ease;
-  }
-  
+    display: none;
+    position: relative;
+    transition: display 0.6s ease;
+}
+
+.carousel-item.active {
+    display: block;
+}
+

@@ -83,34 +83,32 @@
                                 </td>
                             </tr>
                         </thead>
-                        <tbody>
-                            {% for pelicula in lista_peliculas %}
-                            <tr>
-                                <td>
-                                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
-                                        <img src="{{pelicula['url_poster']}}" alt=""
-                                        style="width: 150px; height: auto;">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
-                                        {{pelicula['titulo']}}
-                                    </a>
-                                </td>
-                                <td class="sinopsis-principal" WIDTH="45%">
-                                    Sinópsis: <br>
-                                    {{pelicula['sinopsis']}}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                        {% endfor %}
+                            <tbody>
+                                {% for pelicula in lista_peliculas %}
+                                <tr>
+                                    <td>
+                                        <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                            <img src="{{pelicula['url_poster']}}" alt=""
+                                            style="width: 150px; height: auto;">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                            {{pelicula['titulo']}}
+                                        </a>
+                                    </td>
+                                    <td class="sinopsis-principal" WIDTH="45%">
+                                        Sinópsis: <br>
+                                        {{pelicula['sinopsis']}}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
                     </table>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
-
-
 {% endblock %}

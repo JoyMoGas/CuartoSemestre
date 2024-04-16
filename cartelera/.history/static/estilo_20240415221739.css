@@ -292,8 +292,3 @@ body {
 .open-button:hover{
     background-color: #bcbb9b;
 }
-
-.carousel-item {
-    transition: transform 2s ease;
-  }
-  

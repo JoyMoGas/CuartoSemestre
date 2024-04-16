@@ -293,7 +293,35 @@ body {
     background-color: #bcbb9b;
 }
 
-.carousel-item {
-    transition: transform 2s ease;
-  }
-  
+
+.carousel {
+    width: 100%; /* Ajusta el ancho del carrusel */
+    height: 400px; /* Ajusta la altura del carrusel */
+    background-color: #f8f9fa; /* Cambia el color de fondo del carrusel */
+}
+
+.carousel-inner {
+    text-align: center; /* Centra el contenido del carrusel */
+}
+
+.carousel-item img {
+    max-width: 100%; /* Ajusta el tamaño máximo de las imágenes dentro del carrusel */
+    height: auto; /* Mantiene la proporción de aspecto de las imágenes */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo de la leyenda */
+    color: #ffffff; /* Cambia el color del texto de la leyenda */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el color de fondo de los botones de control */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-image: none; /* Elimina el icono predeterminado de los botones de control */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%; /* Ajusta el ancho de los botones de control */
+}

@@ -22,23 +22,12 @@
                 <td colspan="1">
                     <div class="card" style="width: 18rem;">
                         <div style="width: 60rem;">
-                            <div id="CarouselCaptions" class="carousel slide" data-bs-ride="carousel" style="width:30%;height:30%;">
-                                <div class="carousel-indicators">
-                                    {% for pelicula in lista %}
-                                        {% if loop.index0 == 0 %}
-                                            <button type="button" data-bs-target="#CarouselCaptions" data-bs-slide-to="{{ loop.index0 }}"
-                                                class="active" aria-current="true" aria-labels="{{ pelicula['titulo'] }}"></button>
-                                        {% else %}
-                                            <button type="button" data-bs-target="#CarouselCaptions" data-bs-slide-to="{{ loop.index0 }}"
-                                                aria-labels="{{ pelicula['titulo'] }}"></button>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
+                            <div id="CarouselCaptions" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     {% for pelicula in lista %}
                                         {% if loop.index == 1 %}
                                             <div class="carousel-item active">
-                                                <img src="{{ pelicula['url_poster'] }}" style="width: 350px; height: auto;">
+                                                <img src="{{ pelicula['url_poster'] }}" style="width: 350px; height: auto;" class="d-block w-100 fade-in">
                                                 <div class="carousel-caption d-none d-md-block">
                                                     <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
                                                         <h5>{{ pelicula['titulo'] }}</h5>
@@ -47,7 +36,7 @@
                                             </div>
                                         {% else %}
                                             <div class="carousel-item">
-                                                <img src="{{ pelicula['url_poster'] }}" style="width: 350px; height: auto;">
+                                                <img src="{{ pelicula['url_poster'] }}" style="width: 350px; height: auto;" class="d-block w-100 fade-in">
                                                 <div class="carousel-caption d-none d-md-block">
                                                     <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
                                                         <h5>{{ pelicula['titulo'] }}</h5>
@@ -70,6 +59,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </td>
             </tr> <!-- Cierra el nuevo tr -->
             <tr>
@@ -83,34 +73,32 @@
                                 </td>
                             </tr>
                         </thead>
-                        <tbody>
-                            {% for pelicula in lista_peliculas %}
-                            <tr>
-                                <td>
-                                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
-                                        <img src="{{pelicula['url_poster']}}" alt=""
-                                        style="width: 150px; height: auto;">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
-                                        {{pelicula['titulo']}}
-                                    </a>
-                                </td>
-                                <td class="sinopsis-principal" WIDTH="45%">
-                                    Sinópsis: <br>
-                                    {{pelicula['sinopsis']}}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                        {% endfor %}
+                            <tbody>
+                                {% for pelicula in lista_peliculas %}
+                                <tr>
+                                    <td>
+                                        <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                            <img src="{{pelicula['url_poster']}}" alt=""
+                                            style="width: 150px; height: auto;">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                            {{pelicula['titulo']}}
+                                        </a>
+                                    </td>
+                                    <td class="sinopsis-principal" WIDTH="45%">
+                                        Sinópsis: <br>
+                                        {{pelicula['sinopsis']}}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
                     </table>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
-
-
 {% endblock %}

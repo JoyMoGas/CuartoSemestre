@@ -20,7 +20,7 @@ diccionario_alfabeto = crea_diccionario_alfabeto(cartelera)
 def index():
     global cartelera
     lista_peliculas = peliculas_mas_recientes(cartelera)
-    return render_template("index.html",lista=lista_peliculas, dicc_generos=diccionario_generos)
+    return render_template("index.html",lista=lista_peliculas, dicc_peliculas=diccionario_peliculas)
 
 @app.route("/generos")
 def generos():

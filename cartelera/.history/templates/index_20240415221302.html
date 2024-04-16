@@ -76,41 +76,33 @@
                 <td colspan="2">
                     <table class="table mb-0">
                         <thead>
-                            {% for genero,lista_peliculas in dicc_generos.items() %}
-                            <tr>
-                                <td>
-                                    <a href="/genero/{{genero}}" class="link-secondary">{{genero}}</a>
-                                </td>
-                            </tr>
+                            
                         </thead>
-                        <tbody>
-                            {% for pelicula in lista_peliculas %}
-                            <tr>
-                                <td>
-                                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
-                                        <img src="{{pelicula['url_poster']}}" alt=""
-                                        style="width: 150px; height: auto;">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
-                                        {{pelicula['titulo']}}
-                                    </a>
-                                </td>
-                                <td class="sinopsis-principal" WIDTH="45%">
-                                    Sinópsis: <br>
-                                    {{pelicula['sinopsis']}}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                        {% endfor %}
+                            <tbody>
+                                {% for pelicula in lista_peliculas %}
+                                <tr>
+                                    <td>
+                                        <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                            <img src="{{pelicula['url_poster']}}" alt=""
+                                            style="width: 150px; height: auto;">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                            {{pelicula['titulo']}}
+                                        </a>
+                                    </td>
+                                    <td class="sinopsis-principal" WIDTH="45%">
+                                        Sinópsis: <br>
+                                        {{pelicula['sinopsis']}}
+                                    </td>
+                                </tr>
+                            </tbody>
                     </table>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
-
-
 {% endblock %}

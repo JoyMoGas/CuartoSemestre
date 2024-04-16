@@ -293,7 +293,46 @@ body {
     background-color: #bcbb9b;
 }
 
-.carousel-item {
-    transition: transform 2s ease;
-  }
-  
+/* Agrega animación de desvanecimiento a las transiciones entre diapositivas */
+.carousel-inner .carousel-item {
+    transition: opacity 0.5s ease;
+}
+
+/* Cambia la opacidad de las diapositivas para crear un efecto de desvanecimiento */
+.carousel-inner .carousel-item {
+    opacity: 0;
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    opacity: 1;
+}
+
+/* Agrega animación de desplazamiento a las transiciones de diapositivas */
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    transform: translateX(0);
+}
+
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    transition: transform 0.6s ease;
+}
+
+.carousel-inner .carousel-item-next.carousel-item-left,
+.carousel-inner .carousel-item-prev.carousel-item-right {
+    transform: translateX(0);
+}
+
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    transform: translateX(100%);
+}
+
+.carousel-inner .carousel-item-prev.carousel-item-right,
+.carousel-inner .carousel-item-next.carousel-item-left,
+.carousel-inner .carousel-item.active {
+    transform: translateX(0);
+}
+

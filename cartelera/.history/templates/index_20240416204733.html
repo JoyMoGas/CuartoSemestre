@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css">
+{% endblock %}  
+{% block body %}
+<div id="content">
+    <h1>Cartelera MoGasCine</h1>
+    
+    <table class="table table-striped">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="container">
+                        <h2>Los ultimos lanzamientos</h2>
+                    </div>
+                    
+                </td>
+                <td>
+                    <div class="container">
+                        <h2>Explora Todas las Películas</h2>
+                    </div>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <div class="container">
+                        <div class="card" style="width: 18rem;">
+                            <div style="width: 60rem;">
+                                <div id="CarouselCaptions" class="carousel slide" data-bs-ride="carousel" style="width:360px;height:30%;">
+                                    <div class="carousel-indicators">
+                                        {% for pelicula in lista %}
+                                            {% if loop.index0 == 0 %}
+                                                <button type="button" data-bs-target="#CarouselCaptions" data-bs-slide-to="{{ loop.index0 }}"
+                                                    class="active" aria-current="true" aria-labels="{{ pelicula['titulo'] }}"></button>
+                                            {% else %}
+                                                <button type="button" data-bs-target="#CarouselCaptions" data-bs-slide-to="{{ loop.index0 }}"
+                                                    aria-labels="{{ pelicula['titulo'] }}"></button>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="carousel-inner">
+                                        {% for pelicula in lista %}
+                                            {% if loop.index == 1 %}
+                                                <div class="carousel-item active">
+                                                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                                                        <img src="{{ pelicula['url_poster'] }}" style="width: 360px; height: auto;">
+                                                    </a>
+                                                </div>
+                                            {% else %}
+                                                <div class="carousel-item">
+                                                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                                                        <img src="{{ pelicula['url_poster'] }}" style="width: 360px; height: auto;">
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#CarouselCaptions"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#CarouselCaptions"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                </td>
+
+                <td>
+                    <div class="container">
+                        <div class="card-movie-container">
+                            {% for pelicula in lista_movie %}
+                            {% if loop.index0 == 0 %}
+                            <div class="card-movie">
+                                <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                                    <img src="{{pelicula['url_poster']}}" style="width: 100%; height: auto;"/>
+                                </a>
+                            </div>
+
+                            {% else %}
+                            <div class="card-movie">
+                                <h1>Not found</h1>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                </td>
+                
+                
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+    <script>
+        window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var floatingButton = document.getElementById('floatingBtn');
+    
+        if (scrollPosition > 100) {
+            floatingButton.classList.add('show');
+        } else {
+            floatingButton.classList.remove('show');
+        }
+    });
+    
+    </script>
+</div>
+
+
+{% endblock %}

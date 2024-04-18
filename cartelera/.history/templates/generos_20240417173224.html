@@ -1,0 +1,108 @@
+{% extends "base.html" %} 
+{% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="static/estilo.css" />
+{% endblock %} 
+{% block body %}
+<div id="content">
+  <h1>Cartelera MoGasCine</h1>
+  <h3>Explora los géneros de películas</h3>
+  
+  <div class="dropdown">
+      <button class="open-button" id="menuButton" onclick="toggleMenu()">
+        &#9776;
+          Lista de géneros
+      </button>
+      <div class="menu" id="menu">
+          {% for gen, lista_peliculas in dicc_generos.items() %}
+              <a href="/genero/{{ gen }}" class="link-secondary">{{ gen }}</a> <br>
+          {% endfor %}
+      </div>
+  </div>
+
+
+  <table class="table table-striped">
+    <thead>
+    </thead>
+    <tbody>
+      {% for genero,lista_peliculas in dicc_generos.items() %}
+      <tr>
+        <td>
+          <a href="/genero/{{genero}}" class="link-secondary">{{genero}}</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="container-page">
+              <div class="card-movie-container-page">
+                  {% for pelicula in lista_peliculas %}
+                      <div class="card-movie-page">
+                          <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                              <img src="{{ pelicula['url_poster'] }}" width="200px" height="300px" class="poster-image"/>
+                          </a>
+                      </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('open');
+
+        var content = document.getElementById('content');
+        content.classList.toggle('menu-open');
+    }
+</script>
+
+
+<script>
+  window.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+  var floatingButton = document.getElementById('floatingBtn');
+
+  if (scrollPosition > 100) {
+      floatingButton.classList.add('show');
+  } else {
+      floatingButton.classList.remove('show');
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var cardMovies = document.querySelectorAll(".card-movie");
+
+  function revealElements() {
+      cardMovies.forEach(function(cardMovie) {
+          if (isElementInViewport(cardMovie)) {
+              cardMovie.classList.add("visible");
+          }
+      });
+  }
+
+
+  function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+      return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+  }
+
+  // Revelar elementos al cargar la página
+  revealElements();
+
+  // Revelar elementos al hacer scroll
+  window.addEventListener("scroll", revealElements);
+});
+</script>
+
+</div>
+{% endblock %}

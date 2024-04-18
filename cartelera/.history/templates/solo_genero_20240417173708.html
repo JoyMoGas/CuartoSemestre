@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block title %}Cartelera de CINEMOVIE{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css" />
+
+{% endblock %} {% block body %}
+
+<div id="content">
+    <h1>Cartelera MoGasCine - {{ genero }}</h1>
+
+    <div class="dropdown">
+        <button class="open-button" id="menuButton" onclick="toggleMenu()">
+            &#9776;
+            Lista de géneros
+        </button>
+        <div class="menu" id="menu">
+            <a href="/generos" class="link-secondary">TODOS LOS GENEROS</a>
+            {% for gen, lista_peliculas in dicc_generos.items() %}
+                <a href="/genero/{{ gen }}" class="link-secondary">{{ gen }}</a> <br>
+            {% endfor %}
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+            {% for pelicula in lista_peliculas %}
+            <tr>
+                <td>
+                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary">
+                    <img
+                        src="{{pelicula['url_poster']}}"
+                        style="width: 150px; height: auto;"/>
+                    </a>
+                </td>
+                <td>
+                    <a href="/pelicula/{{pelicula['id']}}" class="link-secondary"
+                    >{{pelicula['titulo']}}</a>
+                </td>
+                <td>{{pelicula['fecha_estreno']}}</td>
+                <td class="sinopsis-principal" WIDTH="45%">
+                    Sinópsis: <br>
+                    {{pelicula['sinopsis']}}
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+    <script>
+        window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var floatingButton = document.getElementById('floatingBtn');
+    
+        if (scrollPosition > 100) {
+            floatingButton.classList.add('show');
+        } else {
+            floatingButton.classList.remove('show');
+        }
+    });
+    
+    </script>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('open');
+
+        var content = document.getElementById('content');
+        content.classList.toggle('menu-open');
+    }
+</script>
+</div>
+{% endblock %}

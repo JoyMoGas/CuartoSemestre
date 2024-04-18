@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} {{ movie['titulo'] }} {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css">
+{% endblock %}
+{% block body %}
+<div class="contenedor" style="width: 85rem; display: flex; align-items: flex-start;">
+    <div id="primero">
+        <img class="imagen-movie" src="{{ movie['url_poster'] }}" width="400" height="500" style="flex-shrink: 0; margin-right: 10px;">
+    </div>
+    
+    <div id="segundo">
+        <h5 class="card-title">{{ movie['titulo'] }}</h5> <hr><br> 
+        <h6 class="card-subtitle mb-2 text-muted">Estreno: {{ movie['fecha_estreno'] }}</h6>
+        <h6 class="card-subtitle">
+            Géneros:
+            {% for genero in generos_pelicula %}
+            <a href="/genero/{{ genero }}" class="link-secondary">{{ genero.replace('_', ' ').capitalize() }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </h6> <hr>
+        <p class="card-text">{{ movie['sinopsis'] }}</p>
+        <hr>
+    </div> <hr id="vertical">
+    <div id="tercero" style="position: relative;">
+        <h5 class="card-title">Trailer Visualizer</h5> <hr>
+        <p>Proximamente...</p>
+    </div>
+    
+    
+    
+</div>
+
+
+
+
+
+
+
+{% endblock %}

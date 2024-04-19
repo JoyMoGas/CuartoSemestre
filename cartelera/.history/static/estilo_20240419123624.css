@@ -365,8 +365,7 @@ body {
 }
 
 #texto {
-    max-width: 400px; /* Establece un ancho máximo para el contenedor de texto */
-    margin: 0 auto; /* Centra el contenido horizontalmente */
+    max-width: 100%;
 }
 
 #tercero {

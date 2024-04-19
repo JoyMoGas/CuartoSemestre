@@ -1,41 +1,58 @@
-    function toggleMenu() {
-    var menu = document.getElementById("menu");
-    menu.classList.toggle("open");
+{% extends "base.html" %} {% block title %} Cartelera CINEMOVIE {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% endblock %} {% block body %}
+<div class="dropdown">
+  <div class="menu open" id="menu">
+    <h6>Selecciona por orden</h6>
+    {% set letras_mostradas = [] %} {% for genero, lista_peliculas in
+    dicc_alfabetico.items() %} {% set inicial_letra = genero[0] %} {% if
+    inicial_letra not in letras_mostradas %}
+    <a href="#{{inicial_letra}}" class="link-secondary">{{ inicial_letra }}</a> <br />
+    {% set _ = letras_mostradas.append(inicial_letra) %} {% endif %} {% endfor
+    %}
+  </div>
+</div>
 
-    var content = document.getElementById("content");
-    content.classList.toggle("menu-open");
-    }
-    
+<div id="content-alfa">
+  <h1>Cartelera MoGasCine</h1>
+  <h3>Ordenadas en orden alfabético</h3>
 
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        var content = document.getElementById("content");
-    
-        menu.classList.toggle("open");
-        content.classList.toggle("menu-open");
-    
-        // Si el menú se abre, desplazar el contenido hacia la derecha; si se cierra, regresar el contenido a su posición original
-        if (menu.classList.contains("open")) {
-            content.style.marginLeft = "250px"; // Ajusta el valor según el ancho del menú
-        } else {
-            content.style.marginLeft = "0";
-        }
-    }
-    
-    document.addEventListener("click", function(event) {
-        var menu = document.getElementById("menu");
-        var menuButton = document.getElementById("menuButton");
-        var content = document.getElementById("content");
-    
-        // Verificar si el menú está abierto y si el clic no es dentro del menú o en el botón de apertura del menú
-        if (menu.classList.contains("open") && event.target !== menu && event.target !== menuButton && !menu.contains(event.target)) {
-            menu.classList.remove("open"); // Cerrar el menú
-            content.classList.remove("menu-open"); // Eliminar la clase de desplazamiento del contenido
-            content.style.marginLeft = "0"; // Regresar el contenido a su posición original
-        }
-    });
+  <table class="table table-striped">
+    <thead></thead>
+    <tbody>
+      {% set letras_mostradas = [] %} {% for genero,lista_peliculas in
+      dicc_alfabetico.items() %} {% set inicial_letra = genero[0] %} {% if
+      inicial_letra not in letras_mostradas %}
+      <tr id="{{inicial_letra}}">
+        <td>
+          <a href="" class="link-secondary">{{ inicial_letra }}</a>
+        </td>
+      </tr>
+      {% set _ = letras_mostradas.append(inicial_letra) %} {% endif %}
+      <tr>
+        <td>
+          <div class="container-page">
+            <div class="card-movie-container-page">
+                {% for pelicula in lista_peliculas %}
+                <div class="card-movie-page">
+                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                        <img src="{{ pelicula['url_poster'] }}" width="200px" height="300px" class="poster-image" />
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
 
-    document.addEventListener("DOMContentLoaded", function() {
+  <script>
+        document.addEventListener("DOMContentLoaded", function() {
         var floatingButton = document.getElementById("floatingBtn");
         
         floatingButton.addEventListener("click", function(event) {
@@ -131,4 +148,7 @@
     window.addEventListener("scroll", revealElements);
     });
 
-    
+  </script>
+
+</div>
+{% endblock %}

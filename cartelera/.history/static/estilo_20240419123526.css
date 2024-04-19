@@ -314,7 +314,7 @@ body {
 .imagen-movie, .imagen-movie-segundo {
     width: auto; /* Ancho automático para mantener la relación de aspecto */
     height: 100%; /* Abarca el 100% de la altura del contenedor */
-     /* Escala la imagen para que quepa dentro del contenedor sin recortarla */
+    object-fit: contain; /* Escala la imagen para que quepa dentro del contenedor sin recortarla */
 }
 
 .card-title {
@@ -342,7 +342,7 @@ body {
     display: flex;
     justify-content: space-between; /* Distribuye los elementos a los bordes de la pantalla */
     align-items: center; /* Centra verticalmente los elementos */
-    max-width: 2000px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
@@ -365,8 +365,7 @@ body {
 }
 
 #texto {
-    max-width: 400px; /* Establece un ancho máximo para el contenedor de texto */
-    margin: 0 auto; /* Centra el contenido horizontalmente */
+    max-width: 100%;
 }
 
 #tercero {

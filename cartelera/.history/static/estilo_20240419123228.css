@@ -312,9 +312,8 @@ body {
 }
 
 .imagen-movie, .imagen-movie-segundo {
-    width: auto; /* Ancho automático para mantener la relación de aspecto */
-    height: 100%; /* Abarca el 100% de la altura del contenedor */
-     /* Escala la imagen para que quepa dentro del contenedor sin recortarla */
+    width: 100%;
+    height: auto;
 }
 
 .card-title {
@@ -337,21 +336,19 @@ body {
     );
 }
 
-
 #contenedor {
     display: flex;
-    justify-content: space-between; /* Distribuye los elementos a los bordes de la pantalla */
-    align-items: center; /* Centra verticalmente los elementos */
-    max-width: 2000px;
+    justify-content: center;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
 #primero, #tercero {
-    width: 200px;
-    height: 100vh; /* Abarca el 100% de la altura de la pantalla */
+    flex: 0 0 200px; /* Ancho fijo de 200px */
 }
+
 #primero, #tercero {
     display: flex;
     align-items: center;
@@ -365,8 +362,7 @@ body {
 }
 
 #texto {
-    max-width: 400px; /* Establece un ancho máximo para el contenedor de texto */
-    margin: 0 auto; /* Centra el contenido horizontalmente */
+    max-width: 100%;
 }
 
 #tercero {

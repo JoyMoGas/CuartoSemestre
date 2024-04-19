@@ -5,35 +5,6 @@
     var content = document.getElementById("content");
     content.classList.toggle("menu-open");
     }
-    
-
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        var content = document.getElementById("content");
-    
-        menu.classList.toggle("open");
-        content.classList.toggle("menu-open");
-    
-        // Si el menú se abre, desplazar el contenido hacia la derecha; si se cierra, regresar el contenido a su posición original
-        if (menu.classList.contains("open")) {
-            content.style.marginLeft = "250px"; // Ajusta el valor según el ancho del menú
-        } else {
-            content.style.marginLeft = "0";
-        }
-    }
-    
-    document.addEventListener("click", function(event) {
-        var menu = document.getElementById("menu");
-        var menuButton = document.getElementById("menuButton");
-        var content = document.getElementById("content");
-    
-        // Verificar si el menú está abierto y si el clic no es dentro del menú o en el botón de apertura del menú
-        if (menu.classList.contains("open") && event.target !== menu && event.target !== menuButton && !menu.contains(event.target)) {
-            menu.classList.remove("open"); // Cerrar el menú
-            content.classList.remove("menu-open"); // Eliminar la clase de desplazamiento del contenido
-            content.style.marginLeft = "0"; // Regresar el contenido a su posición original
-        }
-    });
 
     document.addEventListener("DOMContentLoaded", function() {
         var floatingButton = document.getElementById("floatingBtn");

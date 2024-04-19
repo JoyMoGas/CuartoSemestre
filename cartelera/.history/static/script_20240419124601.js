@@ -5,7 +5,22 @@
     var content = document.getElementById("content");
     content.classList.toggle("menu-open");
     }
+
+    document.addEventListener("click", function(event) {
+        var menu = document.getElementById("menu");
+        var menuButton = document.getElementById("menuButton");
+        var content = document.getElementById("content");
     
+        // Verificamos si el clic fue dentro del menú o en el botón de apertura del menú
+        var isClickInsideMenu = menu.contains(event.target);
+        var isClickOnMenuButton = event.target === menuButton;
+    
+        // Si el clic no fue dentro del menú ni en el botón de apertura del menú, entonces cerramos el menú
+        if (!isClickInsideMenu && !isClickOnMenuButton) {
+            menu.classList.remove("open");
+            content.classList.remove("menu-open");
+        }
+    });
 
     function toggleMenu() {
         var menu = document.getElementById("menu");

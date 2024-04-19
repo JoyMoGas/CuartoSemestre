@@ -311,20 +311,6 @@ body {
     opacity: 1;
 }
 
-.imagen-movie, .imagen-movie-segundo {
-    width: auto; /* Ancho automático para mantener la relación de aspecto */
-    height: 100%; /* Abarca el 100% de la altura del contenedor */
-     /* Escala la imagen para que quepa dentro del contenedor sin recortarla */
-}
-
-.card-title {
-    text-align: center;
-}
-
-.card-subtitle, .card-text {
-    text-align: justify;
-}
-
 .imagen-movie {
     mask-image: linear-gradient(
         to right, black 55%, rgba(0, 0, 0, 0.01 )90%
@@ -337,40 +323,31 @@ body {
     );
 }
 
-
 #contenedor {
-    display: flex;
-    justify-content: space-between; /* Distribuye los elementos a los bordes de la pantalla */
-    align-items: center; /* Centra verticalmente los elementos */
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-#primero, #tercero {
-    width: 200px;
-    height: 100vh; /* Abarca el 100% de la altura de la pantalla */
-}
-#primero, #tercero {
-    display: flex;
+    width: 900px;
+    border: none;
+    overflow: hidden;
     align-items: center;
-}
-
+    }
+#primero {
+    width: 200px;
+    float:left;
+    border: none ;
+    
+    }
 #segundo {
-    flex-grow: 1; /* Ocupa el espacio restante */
-    max-width: calc(100% - 420px); /* Ancho máximo para evitar desbordamiento */
-    padding: 0 20px; /* Añade espacio alrededor del texto */
-    box-sizing: border-box;
-}
-
-#texto {
-    max-width: 400px; /* Establece un ancho máximo para el contenedor de texto */
-    margin: 0 auto; /* Centra el contenido horizontalmente */
-}
+    border: none;
+    overflow: hidden;
+    padding-top:2% !important;
+    padding-left: 15% !important;
+    padding-right: 5% !important;
+    }
 
 #tercero {
-    justify-content: flex-end;
+    width: 200px;
+    float:left;
+    border: none ;
+    right: 50px;
 }
 
 .card-title {
@@ -396,7 +373,7 @@ body {
 }
 
 .btn-flotante {
-    font-size: 16px;
+    font-size: 16px; 
     text-transform: uppercase;
     font-weight: bold;
     color: white;
@@ -411,6 +388,7 @@ body {
     z-index: 99;
     text-decoration: none;
     background-color: rgba(156, 155, 107, 0.2);
+    
 }
 
 .btn-flotante:hover {

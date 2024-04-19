@@ -5,7 +5,6 @@
     var content = document.getElementById("content");
     content.classList.toggle("menu-open");
     }
-    
 
     function toggleMenu() {
         var menu = document.getElementById("menu");

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}
+Cartelera CINEMOVIE
+{% endblock %}  
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+{% endblock %}  
+
+{% block body %} 
+<div class="dropdown">
+    <div class="menu open" id="menu">
+        {% set letras_mostradas = [] %}
+        {% for gen, lista_peliculas in dicc_alfabetico.items() %}
+            {% set inicial_letra = gen[0] %}
+            {% if inicial_letra not in letras_mostradas %}
+                <a href="/genero/{{ inicial_letra }}" class="link-secondary">
+                    {{ inicial_letra }}
+                </a> <br>
+                {% set _ = letras_mostradas.append(inicial_letra) %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div id="content-alfa">
+    <h1>Cartelera MoGasCine</h1>
+    <h3>Ordenadas en orden alfabético</h3>
+
+    <table class="table table-striped">
+        <thead></thead>
+        <tbody>
+            {% for genero,lista_peliculas in dicc_alfabetico.items() %}
+            <tr>
+                <td>
+                    <h2>{{ genero[0] }}</h2> <!-- Muestra solo la letra inicial -->
+                </td>
+            </tr>
+            {% for pelicula in lista_peliculas %}
+            <tr>
+                <td>
+                    <div class="container-page">
+                        <div class="card-movie-container-page">
+                            <div class="card-movie-page">
+                                <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                                    <img src="{{ pelicula['url_poster'] }}" width="200px" height="300px" class="poster-image"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+    <script src="/static/script.js"></script>
+</div>
+{% endblock %}

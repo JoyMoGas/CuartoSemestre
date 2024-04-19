@@ -9,7 +9,7 @@
     {% set letras_mostradas = [] %} {% for genero, lista_peliculas in
     dicc_alfabetico.items() %} {% set inicial_letra = genero[0] %} {% if
     inicial_letra not in letras_mostradas %}
-    <a href="#{{inicial_letra}}" class="link-secondary">{{ inicial_letra }}</a> <br />
+    <a href="" class="link-secondary">{{ inicial_letra }}</a> <br />
     {% set _ = letras_mostradas.append(inicial_letra) %} {% endif %} {% endfor
     %}
   </div>
@@ -25,7 +25,7 @@
       {% set letras_mostradas = [] %} {% for genero,lista_peliculas in
       dicc_alfabetico.items() %} {% set inicial_letra = genero[0] %} {% if
       inicial_letra not in letras_mostradas %}
-      <tr id="{{inicial_letra}}">
+      <tr>
         <td>
           <a href="" class="link-secondary">{{ inicial_letra }}</a>
         </td>
@@ -35,13 +35,18 @@
         <td>
           <div class="container-page">
             <div class="card-movie-container-page">
-                {% for pelicula in lista_peliculas %}
-                <div class="card-movie-page">
-                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
-                        <img src="{{ pelicula['url_poster'] }}" width="200px" height="300px" class="poster-image" />
-                    </a>
-                </div>
-                {% endfor %}
+              {% for pelicula in lista_peliculas %}
+              <div class="card-movie-page">
+                <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                  <img
+                    src="{{ pelicula['url_poster'] }}"
+                    width="200px"
+                    height="300px"
+                    class="poster-image"
+                  />
+                </a>
+              </div>
+              {% endfor %}
             </div>
           </div>
         </td>

@@ -292,21 +292,22 @@ body {
 .card-movie-container-page {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alinea las películas al principio */
 }
-
 .card-movie-page:hover {
     transform: scale(1.03);
 }
 
 .card-movie-page {
-    opacity: 0;
-    width: calc(14% - 10px);
-    margin-bottom: 10px;
+    width: calc(25% - 10px); /* Cada película ocupa el 25% del ancho del contenedor */
+    margin: 0 5px 10px 0; /* Margen entre cada película */
     box-sizing: border-box;
-    transition: opacity 1s, transform 0.3s;
+    transition: transform 0.3s ease-in-out; /* Agrega una transición al hacer hover */
 }
 
+.card-movie-page:hover {
+    transform: scale(1.03); /* Aumenta ligeramente el tamaño al hacer hover */
+}
 .card-movie-page.visible {
     opacity: 1;
 }

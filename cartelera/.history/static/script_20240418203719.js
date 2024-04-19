@@ -45,6 +45,17 @@
             }
         });
     });
+        
+        window.addEventListener("scroll", function () {
+            var scrollPosition = window.scrollY;
+    
+            if (scrollPosition > 100) {
+                floatingButton.classList.add("show");
+            } else {
+                floatingButton.classList.remove("show");
+            }
+        });
+    });
 
     document.addEventListener("DOMContentLoaded", function () {
     var cardMovies = document.querySelectorAll(".card-movie");
@@ -101,5 +112,3 @@
 
     window.addEventListener("scroll", revealElements);
     });
-
-    

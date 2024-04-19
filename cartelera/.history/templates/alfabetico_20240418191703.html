@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}
+Cartelera CINEMOVIE
+{% endblock %}  
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<style>
+    .movies-container {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    .movies-container .card-movie-page {
+        display: inline-block;
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}  
+
+{% block body %} 
+<div class="dropdown">
+    <div class="menu open" id="menu">
+        <h6>Selecciona por orden</h6>
+        {% set letras_mostradas = [] %}
+        {% for genero,lista_peliculas in dicc_alfabetico.items() %}
+            {% set inicial_letra = genero[0] %}
+            {% if inicial_letra not in letras_mostradas %}
+                <a href="" class="link-secondary">{{ inicial_letra }}</a> <br>
+                {% set _ = letras_mostradas.append(inicial_letra) %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div id="content-alfa">
+    <h1>Cartelera MoGasCine</h1>
+    <h3>Ordenadas en orden alfabético</h3>
+
+    {% set letras_mostradas = [] %}
+    {% for genero,lista_peliculas in dicc_alfabetico.items() %}
+        {% set inicial_letra = genero[0] %}
+        {% if inicial_letra not in letras_mostradas %}
+            <h2>{{ inicial_letra }}</h2>
+            <div class="movies-container">
+                {% for pelicula in lista_peliculas %}
+                    <div class="card-movie-page">
+                        <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                            <img src="{{ pelicula['url_poster'] }}" width="200px" height="300px" class="poster-image"/>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <br>
+            {% set _ = letras_mostradas.append(inicial_letra) %}
+        {% endif %}
+    {% endfor %}
+
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+    
+    <script src="/static/script.js"></script>
+</div>
+{% endblock %}

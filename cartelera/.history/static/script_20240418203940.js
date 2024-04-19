@@ -102,4 +102,31 @@
     window.addEventListener("scroll", revealElements);
     });
 
-    
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("show-menu");
+        
+        if (menu.classList.contains("show-menu")) {
+            var start = performance.now();
+            var end = 0;
+            var duration = 500; // Duración total de la animación en milisegundos
+            
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+            
+            function scrollAnimation(currentTime) {
+                var timeElapsed = currentTime - start;
+                var scrollY = easeInOutQuad(timeElapsed, start, end - start, duration);
+                menu.style.height = scrollY + "px";
+                if (timeElapsed < duration) requestAnimationFrame(scrollAnimation);
+            }
+            
+            requestAnimationFrame(scrollAnimation);
+        } else {
+            menu.style.height = "0px";
+        }
+    }

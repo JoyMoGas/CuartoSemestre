@@ -7,7 +7,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-        var floatingButton = document.getElementById("floatingBtn");
+        var floatingButton = document.querySelectorAll("#floatingBtn, #list-button");
         
         floatingButton.addEventListener("click", function(event) {
             event.preventDefault();

@@ -25,8 +25,8 @@
       {% set letras_mostradas = [] %} {% for genero,lista_peliculas in
       dicc_alfabetico.items() %} {% set inicial_letra = genero[0] %} {% if
       inicial_letra not in letras_mostradas %}
-      <tr id="{{inicial_letra}}">
-        <td>
+      <tr >
+        <td id="inicial_letra">
           <a href="" class="link-secondary">{{ inicial_letra }}</a>
         </td>
       </tr>

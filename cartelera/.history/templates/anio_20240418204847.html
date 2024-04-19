@@ -13,7 +13,7 @@
     </button>
     <div class="menu" id="menu">
       {% for anio, lista_peliculas in dicc_anios|dictsort(reverse=true) %}
-      <a href="#{{ anio }}" class="link-secondary">{{ anio[:4] }}</a> <br />
+      <a href="#{{ anio }}"  id="list-button" class="link-secondary">{{ anio[:4] }}</a> <br />
       {% endfor %}
     </div>
   </div>

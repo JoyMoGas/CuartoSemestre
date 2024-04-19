@@ -292,9 +292,8 @@ body {
 .card-movie-container-page {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alinea las películas al principio */
 }
-
 .card-movie-page:hover {
     transform: scale(1.03);
 }

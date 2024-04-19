@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}
+Cartelera CINEMOVIE
+{% endblock %}  
+{% block head %}
+<link rel="stylesheet" href="/static/estilo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+{% endblock %}  
+
+{% block body %} 
+{% for gen, lista_peliculas in dicc_alfabetico.items() %}
+    <div class="dropdown">
+        <div class="menu open" id="menu">
+            <a href="/genero/{{ gen }}" class="link-secondary">
+                {{gen}}
+            </a> <br>
+        </div>
+    </div>
+{% endfor %}
+
+<div id="content-alfa">
+    <h1>Cartelera MoGasCine</h1>
+    <h3>Ordenadas en orden alfabético</h3>
+
+    <table class="table table-striped">
+        <thead></thead>
+        <tbody>
+            {% for genero,lista_peliculas in dicc_alfabetico.items() %}
+            <tr>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <table class="table mb-0">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            {% for pelicula in lista_peliculas %}
+                            <tr>
+                                <td>
+                                    <div class="container-page">
+                                        <div class="card-movie-container-page">
+                                                <div class="card-movie-page">
+                                                    <a href="/pelicula/{{ pelicula['id'] }}" class="link-secondary">
+                                                        <img src="{{ pelicula['url_poster'] }}" width="200px" height="300px" class="poster-image"/>
+                                                    </a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+    <script>
+        window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var floatingButton = document.getElementById('floatingBtn');
+    
+        if (scrollPosition > 100) {
+            floatingButton.classList.add('show');
+        } else {
+            floatingButton.classList.remove('show');
+        }
+    });
+    
+    </script>
+
+    <script src="/static/script.js"></script>
+</div>
+{% endblock %} 

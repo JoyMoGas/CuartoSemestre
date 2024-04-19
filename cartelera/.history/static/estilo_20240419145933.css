@@ -339,7 +339,7 @@ body {
 
 #contenedor {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between; /
     align-items: center; 
     max-width: 2000px;
     margin: 0 auto;

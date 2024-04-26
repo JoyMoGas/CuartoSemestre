@@ -1,0 +1,105 @@
+@import url('htpps://fonts.googleapis.com/css?family=Montserrat:500');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+
+body {
+    overflow-y: auto;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+
+.developer-section {
+    padding-left: 80px;
+    padding-top: 80px;
+}
+.developer img {
+    float: left;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    border-radius: 10%;
+}
+
+.content {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.social-media h2 {
+    margin-top: 10px !important;
+}
+
+.social-media a i {
+    
+    margin-top: 10px !important;
+    padding-right: 15px;
+    font-size: 25px;  
+    cursor: pointer;  
+    transition: 0.5s;
+}
+
+.social-media i:hover {
+    transform: scale(1.08);  
+    
+}
+
+
+.equipo img {
+    margin-right: 50px;
+    margin-left: 60px;
+    float: left;
+    clip-path: circle(50%);
+    width: 250px;
+    height: auto;
+}
+
+.equipo-content {
+    text-align: justify;
+    padding-top: 30px;
+    padding-right: 500px;
+}
+
+.equipo-content p {
+    padding-top: 10px;
+}
+
+
+
+.color-sample {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000; /* Añade un borde para que los colores claros sean visibles */
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.tecnologias {
+    padding-top: 50px;
+    padding-left: auto;
+}
+
+.tecnologias img {
+    mask-image: linear-gradient(
+        to left, black 55%, rgba(0, 0, 0, 0.01 )90%
+    );
+    margin-right: 50px;
+    margin-left: 60px;
+    float: right;
+    width: 500px;
+    height: 300px;
+}
+.tecnologias p {
+    padding-top: 10px;
+}

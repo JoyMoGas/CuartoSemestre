@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}CREDITOS{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+{% block body %}
+    
+<h1>Créditos del Proyecto</h1>
+    <section class="developer-section">
+        <h2>Equipo de Desarrollo</h2>
+        <div class="developer">
+            <img src="path_to_image.jpg" alt="Nombre del Desarrollador">
+            <div>
+                <h3>Juan Pérez</h3>
+                <p>Desarrollador Frontend</p>
+                <p><a href="https://linkedin.com">Perfil de LinkedIn</a></p>
+            </div>
+        </div>
+        <!-- Repetir el bloque anterior para cada desarrollador -->
+    </section>
+    <section class="thanks-section">
+        <h2>Agradecimientos</h2>
+        <p>Agradecemos especialmente a...</p>
+        <!-- Información adicional -->
+    </section>
+    <footer>
+        <p>© 2024 Nombre de la Empresa. Todos los derechos reservados.</p>
+    </footer>
+{% endblock %}

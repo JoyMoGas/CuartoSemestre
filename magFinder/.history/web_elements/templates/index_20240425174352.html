@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}PAGINA INDEX{% endblock %}
+{% block head %}
+    {{ block.super }}  <!-- Esto insertará lo que ya está en el bloque 'head' de base.html y luego añade más si es necesario -->
+{% endblock %}
+{% block body %}
+<script>
+    window.onload = function() {
+        document.getElementById("op1").style.background = '#E1B640';
+    }
+</script>
+{% endblock %}

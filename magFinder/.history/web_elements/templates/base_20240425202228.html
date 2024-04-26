@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        {% endblock %}
+        <link rel="stylesheet" href="/static/base_styles.css">
+        <script src="https://kit.fontawesome.com/942f84de93.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <header>
+            <img class="logo" src="/static/images/logo_uni.png" alt="Logotipo Institucional">
+            <nav>
+                <nav>
+                    <ul class="nav_links">
+                        <li><a href="/" class="{{ 'active' if request.path == '/' else '' }}">Inicio</a></li>
+                        <li><a href="/explorar" class="{{ 'active' if request.path == '/explorar' else '' }}">Explorar</a></li>
+                        <li><a href="/creditos" class="{{ 'active' if request.path == '/creditos' else '' }}">Créditos</a></li>
+                        <li><a href="/acerca-de" class="{{ 'active' if request.path == '/acerca-de' else '' }}">Acerca de</a></li>
+                    </ul>
+                </nav>
+                
+            </nav>
+            <div class="search-box">
+                <form>
+                    <input type ="text" name ="search" id ="srch" placeholder="Buscar">
+                    <button type ="submit"><i class="fa-solid fa-magnifying-glass" style="color: #1b3485;"></i></button>
+                </form>
+            </div>
+        </header>
+
+        {% block body %}
+        {% endblock %}
+
+
+        <footer class="footer">
+            {% block footer %}
+            <a href="/creditos"></a>
+            <img class="logo-personal" src="/static/images/logo_personal.png" alt="Logotipo personal del Desarrollador">   
+            <div class="foot-cont">
+                Desarrollado por José Montaño <br>
+                Copyright(©) 2022-2024</div>
+            {% endblock %}
+        </footer>
+    </body>
+</html>

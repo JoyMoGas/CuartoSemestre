@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}ACERCA DE{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+{% block body %}
+    <h1>Información del Proyecto</h1>
+
+
+    <div class="equipo">
+        <img src="/static/images/02_about.jpg" alt="">
+        <div class="equipo-content">
+            <h2>Nuestro Equipo</h2>
+            <p>
+                José Antonio Montaño Gastélum es actualmente un estudiante de Ingeniería en 
+                Sistemas de Información en la Universidad de Sonora, con una fuerte pasión por 
+                el desarrollo web y las tecnologías emergentes. Desde temprana edad, José mostró 
+                un gran interés en la informática y la tecnología, lo que lo llevó a participar 
+                en varios talleres y eventos de tecnología durante su educación secundaria.
+            </p>
+            <p>
+                Durante su tiempo en la universidad, ha desarrollado habilidades en una variedad 
+                de lenguajes de programación incluyendo HTML, Python, y CSS. Además, ha 
+                trabajado en proyectos que utilizan frameworks y tecnologías modernas como Flask, 
+                Reflex, lo que le ha permitido construir aplicaciones web dinámicas y responsivas.
+            </p>
+        </div>
+    </div>
+    <div class="tecnologias">
+        <h2>Tecnologías Utilizadas</h2>
+        <p>
+            Este proyecto ha sido desarrollado utilizando una variedad de tecnologías y herramientas modernas para asegurar eficiencia y funcionalidad óptima. La base del desarrollo se realizó con <strong>Python</strong> y <strong>Flask</strong>, un microframework poderoso y flexible para aplicaciones web. Además, se implementaron tecnologías front-end como <strong>HTML</strong>, <strong>CSS</strong>, y <strong>JavaScript</strong> para crear una interfaz de usuario interactiva y estéticamente agradable.
+        </p>
+        <p>
+            Para la recopilación de datos necesarios para el proyecto, se diseñaron dos web scrapers. El primero se encargaba de obtener una lista completa de revistas del catálogo objetivo, mientras que el segundo extraía datos específicos de cada revista. Ambos scrapers facilitaron la creación de dos archivos <strong>CSV</strong>, que almacenan la información recolectada de manera estructurada.
+        </p>
+        <p>
+            La estética del sitio se ha cuidado meticulosamente utilizando la fuente <strong>Montserrat 500</strong> para garantizar legibilidad y un diseño cohesivo. La paleta de colores seleccionada incluye <span class="color-sample" style="background-color: #1B3485;"></span> <strong>#1B3485</strong> para la barra de navegación y el pie de página, <span class="color-sample" style="background-color: #ecf0f1;"></span> <strong>#ecf0f1</strong> para el texto de la barra de navegación, y <span class="color-sample" style="background-color: #E1B640;"></span> <strong>#E1B640</strong> como color de realce para los enlaces al pasar el cursor. Además, se utilizó <strong>FontAwesome</strong> para incorporar iconos que mejoran la interfaz visual del sitio.
+        </p>
+        <p>
+            Finalmente, se ha integrado el logotipo personal del desarrollador, aportando una marca distintiva y profesional al conjunto del proyecto. Este logotipo no solo refuerza la identidad visual del sitio, sino que también subraya la personalización y el enfoque detallado en el diseño del proyecto.
+        </p>
+    </div>
+    
+    
+{% endblock %}

@@ -1,0 +1,17 @@
+@import url('htpps://fonts.googleapis.com/css?family=Montserrat:500');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.titles {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}

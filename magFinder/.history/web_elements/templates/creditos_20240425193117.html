@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}CREDITOS{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+{% block body %}
+    
+<h1>Créditos del Proyecto</h1>
+    <section class="developer-section">
+        <h2>Equipo de Desarrollo:</h2>
+        <div class="developer">
+            <p>
+                <img src="/static/images/imagen_yo.jpg" alt="Nombre del Desarrollador">
+                <div class="content">
+                    <h3>José Antonio Montaño Gastélum</h3>
+                    <p>Estudiante de Ingeniería en Sistemas de Información</p>
+                </div>
+            </p>
+            
+        </div>
+        <!-- Repetir el bloque anterior para cada desarrollador -->
+    </section>
+    <section class="thanks-section">
+        <h2>Redes Sociales</h2>
+        <div class="social-media">
+            <a href=""><i class="fa-brands fa-instagram" style="color: #1B3485;"></i></a>
+            <a href=""><i class="fa-brands fa-x-twitter" style="color: #1b3485;"></i></a>
+            <a href=""><i class="fa-brands fa-github" style="color: #1b3485;"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin-in" style="color: #1b3485;"></i></a>
+            <a href=""><i class="fa-brands fa-facebook" style="color: #1b3485;"></i></a>
+            
+        </div>
+        <!-- Información adicional -->
+
+    </section>
+{% endblock %}

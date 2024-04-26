@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}CREDITOS{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+{% block body %}
+    
+<h1>Créditos del Proyecto</h1>
+    <section class="developer-section">
+        <h2>Equipo de Desarrollo:</h2>
+        <div class="developer">
+            <img src="/static/images/imagen_yo.jpg" alt="Nombre del Desarrollador" style="height: 150px;">
+            <div>
+                <h3>José Antonio Montaño Gastélum</h3>
+                <p>Estudiante de Ingeniería en Sistemas de Información</p>
+                <p><a href="https://linkedin.com">Perfil de LinkedIn</a></p>
+            </div>
+        </div>
+        <!-- Repetir el bloque anterior para cada desarrollador -->
+    </section>
+    <section class="thanks-section">
+        <h2>Agradecimientos</h2>
+        <p>Agradecemos especialmente a...</p>
+        <!-- Información adicional -->
+    </section>
+    <footer>
+        <p>© 2024 Nombre de la Empresa. Todos los derechos reservados.</p>
+    </footer>
+{% endblock %}

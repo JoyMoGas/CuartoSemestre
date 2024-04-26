@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% block head %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        {% endblock %}
+        <link rel="stylesheet" href="/web_elements/static/base_styles.css">
+        <script src="https://kit.fontawesome.com/942f84de93.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <header>
+            <img class="logo" src="/static/images/logo_uni.png" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Explorar</a></li>
+                    <li><a href="#">Créditos</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <form>
+                    <input type ="text" name ="search" id ="srch" placeholder="Buscar">
+                    <button type ="submit"><i class="fa-solid fa-magnifying-glass" style="color: #1b3485;"></i></button>
+                </form>
+            </div>
+        </header>
+
+    </body>
+</html>

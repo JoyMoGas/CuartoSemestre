@@ -17,7 +17,7 @@ def scrape_url(url: str):
         'PUBLICATION TYPE': '',
         'ISSN': '',
         'COVERAGE': '',
-        'URL_IMAGEN': ''  # Supongo que seguimos tomando el URL de la imagen de 'embed_code'
+        'URL_IMAGEN': ''  # Asumimos que seguimos obteniendo el URL de la imagen de 'embed_code'
     }
     try:
         response = requests.get(url)
@@ -56,19 +56,32 @@ def scrape_url(url: str):
     return data
 
 def read_urls_and_scrape():
-    
+    existing_urls = set()
+    try:
+        with open(CSV_INFO, mode='r', newline='', encoding='utf-8') as infile:
+            reader = csv.DictReader(infile)
+            for row in reader:
+                existing_urls.add(row['URL'])
+    except FileNotFoundError:
+        print("Existing data file not found, creating a new one.")
+
     with open(CSV_ORIGINAL, mode='r', newline='', encoding='utf-8') as file:
         reader = csv.DictReader(file)
-        with open(CSV_INFO, mode='w', newline='', encoding='utf-8') as outfile:
+        with open(CSV_INFO, mode='a', newline='', encoding='utf-8') as outfile:
             fieldnames = ['URL', 'COUNTRY', 'SUBJECT AREA AND CATEGORY', 
                           'PUBLISHER', 'H-INDEX', 'PUBLICATION TYPE',
                           'ISSN', 'COVERAGE', 'URL_IMAGEN']
             writer = csv.DictWriter(outfile, fieldnames=fieldnames)
-            writer.writeheader()
+            if not existing_urls:
+                writer.writeheader()  # Write header only if file was not found and we're creating a new one
 
             for row in reader:
+                if row['Link'] in existing_urls:
+                    print("Archivo ya agregado:", row['Link'])
+                    continue  # Skip this entry if the URL is already in the set
                 data = scrape_url(row['Link'])
                 writer.writerow(data)
+                existing_urls.add(row['Link'])  # Add the new URL to the set to prevent future duplicates
                 time.sleep(1)  # Wait for one second between requests
 
 # Run the scraping process

@@ -74,7 +74,32 @@ body {
     padding-top: 10px;
 }
 
+.proposito {
+    padding-top: 0px;
+    padding-left: 200px;
+}
 
+.proposito-content p {
+    padding-top: 10px;
+}
+
+.proposito-content {
+    text-align: justify;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+.proposito img {
+    mask-image: linear-gradient(
+        to left, black 55%, rgba(0, 0, 0, 0.01 )90%
+    );
+    
+    margin-right: 60px;
+    margin-left: 50px;
+    float: right;
+    width: 500px;
+    height:480px;
+}
 
 .color-sample {
     display: inline-block;
@@ -85,21 +110,36 @@ body {
     vertical-align: middle;
 }
 
+
+
 .tecnologias {
     padding-top: 50px;
-    padding-left: 200px;
+    padding-left: 50px;
+
 }
 
-.tecnologias img {
+.tecnologias .image {
     mask-image: linear-gradient(
-        to left, black 55%, rgba(0, 0, 0, 0.01 )90%
+        to right, black 55%, rgba(0, 0, 0, 0.01 )90%
     );
-    margin-right: 50px;
-    margin-left: 60px;
-    float: right;
-    width: 500px;
-    height:450px;
+    margin-right: 20px;
+    float: left;
+    width:550px;
+    height:500px;
 }
 .tecnologias p {
     padding-top: 10px;
+    padding-right: 200px;
+}
+
+.p-logo p {
+    padding-top: 10px;
+    padding-right: 100px;
+}
+
+.p-logo img {
+    float: left;
+    margin-right: 20px; /* Añade espacio entre el texto y la imagen */
+    height: 100px; 
+    width: 100px;
 }

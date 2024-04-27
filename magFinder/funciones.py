@@ -33,6 +33,10 @@ def crea_diccionario_alfabeto(lista_revistas: list) -> dict:
     d = {k: v for k, v in sorted(d.items(), key=lambda item: item[0])}
     return d
 
+# En funciones.py
+def buscar_revistas_por_titulo(revistas, texto_busqueda):
+    texto_busqueda = texto_busqueda.lower()
+    return [revista for revista in revistas if texto_busqueda in revista['Titulo'].lower()]
 
 if __name__ == "__main__":
     lista_de_revistas = carga_inicio('revistas.csv')

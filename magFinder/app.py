@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from funciones import carga_inicio
 from funciones import crea_diccionario_alfabeto
+from funciones import buscar_revistas_por_titulo
+import unicodedata
 
 app = Flask(__name__)
 
@@ -34,7 +36,6 @@ def explorar():
     diccionario_alfabeto = crea_diccionario_alfabeto(revistas)
     return render_template('explorar.html', dicc_alfabeto=diccionario_alfabeto)
 
-from flask import Flask, render_template, request
 
 @app.route("/explorar/<letra>")
 def solo_letra(letra):
@@ -58,6 +59,15 @@ def creditos():
 @app.route('/acerca-de')
 def acerca_de():
     return render_template('about.html')
+
+@app.route('/buscar', methods=['GET'])
+def buscar():
+    texto_busqueda = request.args.get('search', '')  # Obtiene la palabra de búsqueda del formulario
+    if texto_busqueda:
+        revistas_encontradas = buscar_revistas_por_titulo(revistas, texto_busqueda)
+        return render_template('revista.html', revistas=revistas_encontradas, busqueda=texto_busqueda)
+    return render_template('index.html')  # Redirige a la página principal si no hay búsqueda
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}PAGINA INDEX{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+{% block body %}
+
+
+    <h1>Explora Todo el Catálogo</h1>
+    <div>
+        <span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }}</span>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th><h2>TÍTULO</h2></th>
+                    <th><h2>TIPO</h2></th>
+                    <th><h2>SJR (Cuartil)</h2></th>
+                    <th><h2>H-INDEX</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for revista in lista %}
+                <tr>
+                    <td>
+                        <a class="link-revista" href="/revista/{{ revista['Titulo'] | urlencode }}">
+                            {{ revista['Titulo'] }}
+                        </a>
+                    </td>
+                    <td>{{ revista['Type'] }}</td>
+                    <td>{{ revista['SJR (Cuartil)'] }}</td>
+                    <td>{{ revista['H_Index'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }}</span>
+        
+        <div class="botones">
+            {% if page > 1 %}
+                <button class="link-page">
+                    <a href="/?page={{ page - 1 }}">Anterior ({{ page - 1 }})</a>
+                </button>
+            {% endif %}
+            
+            
+            
+            {% if page < total_pages %}
+                <button class="link-page">
+                    <a href="/?page={{ page + 1 }}">Siguiente ({{ page + 1 }})</a>
+                </button>
+                <!-- Botón para ir directamente a la última página si no está en ella -->
+                <button class="link-page">
+                    <a href="/?page={{ total_pages }}">Ir a la última página</a>
+                </button>
+            {% else %}
+                <!-- Botón para volver a la primera página si está en la última página -->
+                <button class="link-page">
+                    <a href="/?page=1">Volver a la primera página</a>
+                </button>
+            {% endif %}
+        </div>
+        
+        <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+{% endblock %}

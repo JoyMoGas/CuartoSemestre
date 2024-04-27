@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Explorar Revistas{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="/static/styles.css">
+{% endblock %}
+{% block body %}
+<div class="dropdown">
+    <div class="menu open" id="menu">
+        <h4>Selecciona por orden</h4>
+        {% for letra, revistas in dicc_alfabeto.items() %}
+            <a href="/explorar/{{ letra }}" class="link-secondary">{{ letra }}</a> <br />
+        {% endfor %}
+    </div>
+</div>
+
+<h1>Catálogo Alfabético de Revistas</h1>
+{% endblock %}

@@ -1,0 +1,292 @@
+@import url('htpps://fonts.googleapis.com/css?family=Montserrat:500');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+h1 {
+    padding-top: 80px;
+    font-size: 4rem;
+    text-align: center;
+}
+
+
+body {
+    overflow-y: auto;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+
+.developer-section {
+    padding-left: 80px;
+    padding-top: 80px;
+}
+.developer img {
+    float: left;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    border-radius: 10%;
+}
+
+.content {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.social-media h2 {
+    margin-top: 10px !important;
+}
+
+.social-media a i {
+    
+    margin-top: 10px !important;
+    padding-right: 15px;
+    font-size: 25px;  
+    cursor: pointer;  
+    transition: 0.5s;
+}
+
+.social-media i:hover {
+    transform: scale(1.08);  
+    
+}
+
+
+.equipo img {
+    margin-right: 50px;
+    margin-left: 60px;
+    float: left;
+    clip-path: circle(50%);
+    width: 250px;
+    height: auto;
+}
+
+.equipo-content {
+    text-align: justify;
+    padding-top: 30px;
+    padding-right: 500px;
+}
+
+.equipo-content p {
+    padding-top: 10px;
+}
+
+.proposito {
+    padding-top: 0px;
+    padding-left: 200px;
+}
+
+.proposito-content p {
+    padding-top: 10px;
+}
+
+.proposito-content {
+    text-align: justify;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+.proposito img {
+    mask-image: linear-gradient(
+        to left, black 55%, rgba(0, 0, 0, 0.01 )90%
+    );
+    
+    margin-right: 60px;
+    margin-left: 50px;
+    float: right;
+    width: 500px;
+    height:480px;
+}
+
+.color-sample {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000; /* Añade un borde para que los colores claros sean visibles */
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+
+.tecnologias {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 90px;
+}
+
+.tecnologias p {
+    padding-top: 10px;
+}
+
+.tecnologias .image {
+    mask-image: linear-gradient(
+        to right, black 55%, rgba(0, 0, 0, 0.01 )90%
+    );
+    margin-right: 20px;
+    float: left;
+    width:550px;
+    height:500px;
+}
+.p-logo {
+    overflow: hidden; /* Asegura que el contenedor maneje correctamente los elementos flotantes dentro */
+    padding-top: 10px;
+    padding-right: 100px;
+}
+
+
+.p-logo img {
+    float: left; /* Hace que la imagen flote a la derecha */
+    margin-left: 20px; /* Añade espacio entre el texto y la imagen */
+    height: 100px;
+    width: 100px;
+}
+
+.p-logo p {
+    padding-top: 0px;
+    padding-right: 50px; /* Ajusta según necesidad para dar espacio al texto */
+}
+
+
+table {
+    margin: auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse; /* Elimina los espacios entre los bordes de las celdas */
+    width: 95%; /* Ajusta al ancho deseado */
+}
+
+th, td {
+    border: 1px solid rgb(183, 194, 211); /* Añade bordes visibles a cada celda */
+    text-align: left;
+    padding: 8px; /* Añade un poco de padding para que el texto no toque los bordes */
+}
+
+th:first-child, td:first-child {
+    width: 300px; /* Aumenta el ancho si es necesario */
+    word-wrap: break-word; /* Asegura que el texto se ajuste dentro de la celda */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 20%; /* Ejemplo: Ancho para la columna 'Tipo' */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 20%; /* Ejemplo: Ancho para la columna 'SJR (Cuartil)' */
+}
+
+th:nth-child(4), td:nth-child(4) {
+    width: 20%; /* Ejemplo: Ancho para la columna 'H-Index' */
+}
+
+.link-revista {
+    color: black; /* Asegura que el color del enlace sea negro */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.link-revista:hover {
+    color: #4b4b4b; /* Añade un subrayado al pasar el mouse para indicar que es clickeable */
+}
+
+.botones {
+    display: flex;       /* Activa flexbox en el contenedor */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    padding-top: 20px;
+}
+
+.link-page a {
+    color: #FFF; /* Cambia el color del texto a blanco para mejor visibilidad */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.link-page {
+    padding: 5px 8px; /* Ajusta el padding como necesario */
+    margin: 0 5px; /* Añade un poco de espacio horizontal entre los botones */
+    border: 0;
+    border-radius: 5px;
+    background-color: #E1B640;
+    transition: 0.3s;
+    cursor: pointer; /* Añade el cursor de tipo pointer para indicar clickeabilidad */
+}
+
+.link-page:hover {
+    background-color: #1B3485;
+}
+
+
+#floatingBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #E1B640; 
+    color: #FFF; 
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s, color 0.3s, background-color 0.3s;
+    transform: translateY(20px);
+}
+
+#floatingBtn:hover {
+    color: #FFF;
+    background-color: #506cc7; 
+}
+.toTop {
+    text-decoration: none;
+}
+
+#floatingBtn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color:#FFF;
+}
+
+
+.menu {
+    width: 150px;
+    height: 100vh;
+    background-color: #E1B640;
+    
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.5s ease;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    padding-left: 30px;
+    overflow-y: auto; 
+}
+
+.menu.open {
+    left: 0;
+}
+
+.menu h4{
+    color:#FFF;
+}
+
+.menu a{
+    text-decoration: none; 
+    color:#FFF;
+    transition: 0.3s;
+}
+
+.menu a:hover{
+    color: #1B3485;
+}
+
+.menu-open {
+    margin-left: 250px;
+}

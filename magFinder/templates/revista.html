@@ -4,35 +4,17 @@
     <link rel="stylesheet" href="/static/styles.css">
 {% endblock %}
 {% block body %}
-<h1 style="padding-left: 200px;">Resultados de búsqueda para '{{ busqueda }}'</h1>
-{% if revistas %}
+
 <div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th><h2>TÍTULO</h2></th>
-                <th><h2>TIPO</h2></th>
-                <th><h2>SJR (Cuartil)</h2></th>
-                <th><h2>H-INDEX</h2></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for revista in revistas %}
-            <tr>
-                <td>
-                    <a class="link-revista" href="/revista/{{ revista['ID'] }}">
-                        {{ revista['Titulo'] }}
-                    </a>
-                </td>
-                <td>{{ revista['Type'] }}</td>
-                <td>{{ revista['SJR (Cuartil)'] }}</td>
-                <td>{{ revista['H_Index'] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div id="segundo">
+        <div id="texto">
+            <h1>{{ revista['TITLE']}}</h1>
+            <h1>{{ revista['COUNTRY'] }}</h1>
+            {{ revista['URL_IMAGEN'] | safe }}
+            <p>{{ revista['SCOPE'] }}</p>
+        </div>
+    </div>
 </div>
-{% else %}
-    <p>No se encontraron revistas que coincidan con la búsqueda.</p>
-{% endif %}
+
 {% endblock %}
+

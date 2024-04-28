@@ -30,7 +30,7 @@
             {% for revista in lista_revistas %}
             <tr>
                 <td>
-                    <a class="link-revista" href="/detalle_revista/{{ revista['ID'] }}" class="link-secondary">
+                    <a class="link-revista" href="/revista/{{ revista['Titulo'] | urlencode }}" class="link-secondary">
                         {{ revista['Titulo'] }}
                     </a>
                 </td>

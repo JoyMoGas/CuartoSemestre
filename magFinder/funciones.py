@@ -38,6 +38,37 @@ def buscar_revistas_por_titulo(revistas, texto_busqueda):
     texto_busqueda = texto_busqueda.lower()
     return [revista for revista in revistas if texto_busqueda in revista['Titulo'].lower()]
 
+def crea_diccionario_revistas(lista_revistas:list)->dict:
+    ''' Crea diccionario de peliculas a partir de 
+        la lista de peliculas
+        {"id_pelicula" ={diccionario_pelicula}}
+    '''
+    d = {}
+    for revista in lista_revistas:
+        key = revista["Titulo"]
+        d[key] = revista # key,value
+    return d
+
+def crea_diccionario_revistas_datos(lista_revistas):
+    d = {}
+    for revista in lista_revistas:
+        key = revista["TITLE"]
+        d[key] = revista
+    return d
+
+def carga_datos_revistas_info(lista_revistas: str) -> dict:
+    ''' Crea diccionario de peliculas a partir de 
+        la lista de peliculas
+        {"id_pelicula" ={diccionario_pelicula}}
+    '''
+    d = {}
+    for revista in lista_revistas:
+        key = revista["URL"]
+        d[key] = revista # key,value
+    return d
+
+
+
 if __name__ == "__main__":
     lista_de_revistas = carga_inicio('revistas.csv')
     if lista_de_revistas:

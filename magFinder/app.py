@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 from funciones import carga_inicio
 from funciones import crea_diccionario_alfabeto
 from funciones import buscar_revistas_por_titulo
+from funciones import crea_diccionario_revistas
+from funciones import crea_diccionario_revistas_datos
 import unicodedata
 
 app = Flask(__name__)
@@ -65,8 +67,18 @@ def buscar():
     texto_busqueda = request.args.get('search', '')  # Obtiene la palabra de búsqueda del formulario
     if texto_busqueda:
         revistas_encontradas = buscar_revistas_por_titulo(revistas, texto_busqueda)
-        return render_template('revista.html', revistas=revistas_encontradas, busqueda=texto_busqueda)
+        return render_template('busqueda.html', revistas=revistas_encontradas, busqueda=texto_busqueda)
     return render_template('index.html')  # Redirige a la página principal si no hay búsqueda
+
+@app.route('/revista/<titulo>')
+def revista(titulo: str):
+    revistas_datos = carga_inicio('revista_info.csv')
+    diccionario_revistas = crea_diccionario_revistas_datos(revistas_datos)
+    if titulo in diccionario_revistas:
+        revista = diccionario_revistas[titulo]
+        return render_template('revista.html', revista=revista)
+    else:
+        return render_template("no_existe.html")
 
 
 if __name__ == "__main__":

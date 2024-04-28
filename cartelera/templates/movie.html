@@ -1,40 +1,40 @@
-{% extends "base.html" %}
-{% block title %} {{ movie['titulo'] }} {% endblock %}
-{% block head %}
-<link rel="stylesheet" href="/static/estilo.css">
-{% endblock %}
-{% block body %}
-<div>
+    {% extends "base.html" %}
+    {% block title %} {{ movie['titulo'] }} {% endblock %}
+    {% block head %}
+    <link rel="stylesheet" href="/static/estilo.css">
+    {% endblock %}
+    {% block body %}
     <div>
-        <a href="/" class="btn-flotante">&#129044;Regresar</a>
-    </div>
-</div>
-
-
-
-<div id="contenedor">
-    <div id="primero">
-        <img class="imagen-movie" src="{{ movie['url_poster'] }}" width="200" height="auto">
-    </div>
-    <div id="segundo">
-        <div id="texto">
-            <h5 class="card-title">{{ movie['titulo'] }}</h5>
-            <hr>
-            <h6 class="card-subtitle mb-2 text-muted">Estreno: {{ movie['fecha_estreno'] }}</h6>
-            <h6 class="card-subtitle">
-                Géneros:
-                {% for genero in generos_pelicula %}
-                <a href="/genero/{{ genero }}" class="link-secondary">{{ genero.replace('_', ' ').capitalize() }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-            </h6>
-            <hr>
-            <p class="card-text">{{ movie['sinopsis'] }}</p>
+        <div>
+            <a href="/" class="btn-flotante">&#129044;Regresar</a>
         </div>
     </div>
-    <div id="tercero">
-        <img class="imagen-movie-segundo" src="{{ movie['url_poster'] }}" width="200" height="auto">
+
+
+
+    <div id="contenedor">
+        <div id="primero">
+            <img class="imagen-movie" src="{{ movie['url_poster'] }}" width="200" height="auto">
+        </div>
+        <div id="segundo">
+            <div id="texto">
+                <h5 class="card-title">{{ movie['titulo'] }}</h5>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted">Estreno: {{ movie['fecha_estreno'] }}</h6>
+                <h6 class="card-subtitle">
+                    Géneros:
+                    {% for genero in generos_pelicula %}
+                    <a href="/genero/{{ genero }}" class="link-secondary">{{ genero.replace('_', ' ').capitalize() }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </h6>
+                <hr>
+                <p class="card-text">{{ movie['sinopsis'] }}</p>
+            </div>
+        </div>
+        <div id="tercero">
+            <img class="imagen-movie-segundo" src="{{ movie['url_poster'] }}" width="200" height="auto">
+        </div>
     </div>
-</div>
 
 
 
@@ -43,4 +43,4 @@
 
 
 
-{% endblock %}
+    {% endblock %}

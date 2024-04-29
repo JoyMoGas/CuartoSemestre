@@ -5,16 +5,58 @@
 {% endblock %}
 {% block body %}
 
-<div>
-    <div id="segundo">
-        <div id="texto">
-            <h1>{{ revista['TITLE']}}</h1>
-            <h1>{{ revista['COUNTRY'] }}</h1>
+<button id="btn-regresar">
+    <a onclick="window.history.back();">Regresar</a>
+</button>
+
+<div id="principal">
+    <div id="info">
+        <div>
+            <h3>COUNTRY</h3>
+            <p>{{ revista['COUNTRY'] }}</p>
+        </div>
+        <div>
+            <h3>SUBJECT AREA AND CATEGORY</h3>
+            <p>{{ revista['SUBJECT AREA AND CATEGORY'] }}</p>
+            
+        </div>
+        <div>
+            <h3>PUBLISHER</h3>
+            <p>{{ revista['PUBLISHER'] }}</p>
+        </div>
+        <div>
+            <h3>H-INDEX</h3>
+            <p>{{ revista['H-INDEX'] }}</p>
+        </div>
+        <div>
+            <h3>PUBLICATION TYPE</h3>
+            <p>{{ revista['PUBLICATION TYPE'] }}</p>
+            
+        </div>
+        <div>
+            <h3>ISSN</h3>
+            <p>{{ revista['ISSN'] }}</p>
+            
+        </div>
+        <div>
+            <h3>COVERAGE</h3>
+            <p>{{ revista['COVERAGE'] }}</p>
+            
+        </div>
+        <div>
             {{ revista['URL_IMAGEN'] | safe }}
-            <p>{{ revista['SCOPE'] }}</p>
         </div>
     </div>
+    <div id="titulo">
+        <h1 id="h1-info" style="padding-top: 25px;">{{ revista['TITLE']}}</h1>
+        <h2 id="h2-info" style="margin-top: 20px;">SCOPE</h2>
+        <p id="p-info" style="margin-top: 10px; font-size: 1.5rem;">{{ revista['SCOPE'] }}</p>
+    </div>
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
 </div>
+
+<script src="/static/scripts.js"></script>
 
 {% endblock %}
 
+<!-- <p>{{ revista['SCOPE'] }}</p> -->>

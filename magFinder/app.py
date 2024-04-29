@@ -30,8 +30,9 @@ def index():
     per_page = 50
     start = (page - 1) * per_page
     end = start + per_page
-    total_pages = (len(revistas) + per_page - 1) // per_page  # Calcula el total de páginas
-    return render_template('index.html', lista=revistas[start:end], page=page, total_pages=total_pages)
+    total_results = len(revistas)  # Total de revistas disponibles
+    total_pages = (total_results + per_page - 1) // per_page  # Calcula el total de páginas
+    return render_template('index.html', lista=revistas[start:end], page=page, total_pages=total_pages, total_results=total_results)
 
 @app.route("/explorar")
 def explorar():
@@ -44,12 +45,14 @@ def solo_letra(letra):
     diccionario_alfabeto = crea_diccionario_alfabeto(revistas)
     if letra in diccionario_alfabeto:
         page = request.args.get('page', 1, type=int)
-        per_page = 40  # Cambia esto según cuántas revistas quieres mostrar por página
+        per_page = 40  # Cantidad de revistas por página
+        lista_revistas_por_letra = diccionario_alfabeto[letra]
+        total_results = len(lista_revistas_por_letra)  # Total de revistas que comienzan con la letra
+        total_pages = (total_results + per_page - 1) // per_page
         start = (page - 1) * per_page
         end = start + per_page
-        lista_revistas = diccionario_alfabeto[letra][start:end]
-        total_pages = (len(diccionario_alfabeto[letra]) + per_page - 1) // per_page
-        return render_template('solo_letra.html', letra=letra, lista_revistas=lista_revistas, dicc_alfabeto=diccionario_alfabeto, page=page, total_pages=total_pages)
+        lista_revistas = lista_revistas_por_letra[start:end]
+        return render_template('solo_letra.html', letra=letra, lista_revistas=lista_revistas, dicc_alfabeto=diccionario_alfabeto, page=page, total_pages=total_pages, total_results=total_results)
     else:
         return render_template('no_existe.html')
 
@@ -64,11 +67,19 @@ def acerca_de():
 
 @app.route('/buscar', methods=['GET'])
 def buscar():
-    texto_busqueda = request.args.get('search', '')  # Obtiene la palabra de búsqueda del formulario
+    texto_busqueda = request.args.get('search', '')
+    page = request.args.get('page', 1, type=int)
+    per_page = 10  # Cantidad de resultados por página
+
     if texto_busqueda:
-        revistas_encontradas = buscar_revistas_por_titulo(revistas, texto_busqueda)
-        return render_template('busqueda.html', revistas=revistas_encontradas, busqueda=texto_busqueda)
-    return render_template('index.html')  # Redirige a la página principal si no hay búsqueda
+        todos_revistas = buscar_revistas_por_titulo(revistas, texto_busqueda)
+        total_pages = (len(todos_revistas) + per_page - 1) // per_page
+        start = (page - 1) * per_page
+        end = start + per_page
+        revistas_encontradas = todos_revistas[start:end]
+
+        return render_template('busqueda.html', revistas=revistas_encontradas, busqueda=texto_busqueda, page=page, total_pages=total_pages, total_results=len(todos_revistas))
+    return render_template('index.html')
 
 @app.route('/revista/<titulo>')
 def revista(titulo: str):

@@ -4,7 +4,12 @@
     <link rel="stylesheet" href="/static/styles.css">
 {% endblock %}
 {% block body %}
+
+<button id="btn-regresar" onclick="window.history.back();" style="position: absolute; left: 50px; top: 100px;">Regresar</button>
+
 <h1 style="padding-left: 200px;">Resultados de búsqueda para '{{ busqueda }}'</h1>
+<span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }} | Total de resultados: {{ total_results }}</span>
+
 {% if revistas %}
 <div>
     <table class="table table-striped">
@@ -31,8 +36,22 @@
             {% endfor %}
         </tbody>
     </table>
+    <!-- Botones de paginación -->
+    <div class="botones">
+        {% if page > 1 %}
+        <button class="link-page">
+            <a href="{{ url_for('buscar', search=busqueda, page=page-1) }}"><i class="fa-solid fa-arrow-left" style="color: #f2f2f2;"></i> Anterior</a>
+        </button>
+        {% endif %}
+        {% if page < total_pages %}
+        <button class="link-page">
+            <a href="{{ url_for('buscar', search=busqueda, page=page+1) }}">Siguiente <i class="fa-solid fa-arrow-right" style="color: #f2f2f2;"></i></a>
+        </button>
+        {% endif %}
+    </div>
+    <a class="toTop" href="#top" id="floatingBtn" title="Go to top">To Top</a>
 </div>
 {% else %}
-    <p>No se encontraron revistas que coincidan con la búsqueda.</p>
+    <h2 style="padding-top: 20px; padding-left: 450px;">No se encontraron revistas que coincidan con la búsqueda.</h2>
 {% endif %}
 {% endblock %}

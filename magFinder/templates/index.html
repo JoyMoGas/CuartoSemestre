@@ -8,7 +8,7 @@
 
     <h1>Explora Todo el Catálogo</h1>
     <div>
-        <span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }}</span>
+        <span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }}&nbsp;&nbsp;|&nbsp;&nbsp;Total de resultados: {{ total_results }}</span>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -39,7 +39,7 @@
         <div class="botones">
             {% if page > 1 %}
                 <button class="link-page">
-                    <a href="/?page={{ page - 1 }}">Anterior ({{ page - 1 }})</a>
+                    <a href="/?page={{ page - 1 }}"><i class="fa-solid fa-arrow-left" style="color: #f2f2f2;"></i> Anterior</a>
                 </button>
             {% endif %}
             
@@ -47,7 +47,7 @@
             
             {% if page < total_pages %}
                 <button class="link-page">
-                    <a href="/?page={{ page + 1 }}">Siguiente ({{ page + 1 }})</a>
+                    <a href="/?page={{ page + 1 }}">Siguiente <i class="fa-solid fa-arrow-right" style="color: #f2f2f2;"></i></a>
                 </button>
                 <!-- Botón para ir directamente a la última página si no está en ella -->
                 <button class="link-page">

@@ -290,3 +290,72 @@ th:nth-child(4), td:nth-child(4) {
 .menu-open {
     margin-left: 250px;
 }
+
+#principal {
+    display: flex; /* Usando flexbox para un mejor control del layout */
+    flex-direction: row; /* Los elementos hijos se organizan en fila */
+    justify-content: space-between; /* Distribuye el espacio de manera uniforme */
+    align-items: flex-start; /* Alinea los elementos al comienzo de su contenedor */
+    margin: auto;
+    margin-top: 120px;
+    width: 1250px;
+    background-color: #f8f8f8; /* Un color de fondo más suave */
+    padding: 20px; /* Añade algo de padding alrededor */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Añade un ligero sombreado para destacar el panel */
+}
+
+#info {
+    width: 350px;
+    background-color: #e0e0e0; /* Un verde suave para el fondo */
+    padding: 10px; /* Espacio interior para no pegar el texto a los bordes */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombreado interior suave */
+}
+
+#titulo {
+    width: calc(100% - 370px); /* Calcula el ancho restando el ancho de #info más algo de margen */
+    background-color: #d0e0f0; /* Un azul suave para el fondo */
+    padding: 20px; /* Espacio interior para el contenido */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombreado interior suave */
+}
+
+/* Estilos adicionales para mejorar la tipografía y la legibilidad */
+h1-info, h2-info, p-info {
+    margin: 0 0 20px 0; /* Añade un margen inferior para separar los elementos */
+}
+
+h1-info {
+    color: #333; /* Color oscuro para mayor contraste */
+    font-size: 2rem; /* Tamaño de fuente grande para el título */
+}
+
+h2-info {
+    color: #666; /* Color medio para sub-títulos */
+    font-size: 1.75rem; /* Tamaño de fuente para sub-títulos */
+}
+
+p-info {
+    color: #444; /* Color oscuro para el texto normal */
+    font-size: 1.2rem; /* Tamaño de fuente legible para el cuerpo del texto */
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+#btn-regresar {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background-color: #E1B640;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#btn-regresar:hover {
+    background-color: #506cc7;
+}

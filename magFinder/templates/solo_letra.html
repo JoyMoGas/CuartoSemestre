@@ -13,10 +13,14 @@
     </div>
 </div>
 
+<button id="btn-regresar" style="left: 200px; top: 100px;">
+    <a onclick="window.history.back();">Regresar</a>
+</button>
+
 <h1 style="padding-left: 200px;">Comenzando con '{{ letra }}'</h1>
 
 <div  style="padding-left:160px;">
-    <span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }}</span>
+    <span style="padding-left: 50px;" class="pagina-actual">Página {{ page }} de {{ total_pages }}&nbsp;&nbsp;|&nbsp;&nbsp;Total de resultados: {{ total_results }}</span>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -47,12 +51,12 @@
     <div class="botones">
         {% if page > 1 %}
         <button class="link-page">
-            <a href="{{ url_for('solo_letra', letra=letra, page=page-1) }}">Anterior ({{ page - 1 }})</a>
+            <a href="{{ url_for('solo_letra', letra=letra, page=page-1) }}"><i class="fa-solid fa-arrow-left" style="color: #f2f2f2;"></i>Anterior</a>
         </button>
         {% endif %}
         {% if page < total_pages %}
         <button class="link-page">
-            <a href="{{ url_for('solo_letra', letra=letra, page=page+1) }}">Siguiente ({{ page + 1 }})</a>
+            <a href="{{ url_for('solo_letra', letra=letra, page=page+1) }}">Siguiente <i class="fa-solid fa-arrow-right" style="color: #f2f2f2;"></i></a>
         </button>
 
         {% endif %}

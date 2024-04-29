@@ -2,19 +2,13 @@ from flask import Flask, render_template, request
 from funciones import carga_inicio
 from funciones import crea_diccionario_alfabeto
 from funciones import buscar_revistas_por_titulo
-from funciones import crea_diccionario_revistas
 from funciones import crea_diccionario_revistas_datos
-import unicodedata
 
 app = Flask(__name__)
 
-
-
-# Carga de revistas desde CSV o generación de datos de prueba
 try:
     revistas = carga_inicio('revistas.csv')
 except FileNotFoundError:
-    # Generar datos de prueba con todos los campos necesarios
     revistas = [
         {
             'Titulo': f'Revista {i}',
@@ -30,8 +24,8 @@ def index():
     per_page = 50
     start = (page - 1) * per_page
     end = start + per_page
-    total_results = len(revistas)  # Total de revistas disponibles
-    total_pages = (total_results + per_page - 1) // per_page  # Calcula el total de páginas
+    total_results = len(revistas) 
+    total_pages = (total_results + per_page - 1) // per_page
     return render_template('index.html', lista=revistas[start:end], page=page, total_pages=total_pages, total_results=total_results)
 
 @app.route("/explorar")
@@ -45,9 +39,9 @@ def solo_letra(letra):
     diccionario_alfabeto = crea_diccionario_alfabeto(revistas)
     if letra in diccionario_alfabeto:
         page = request.args.get('page', 1, type=int)
-        per_page = 40  # Cantidad de revistas por página
+        per_page = 40 
         lista_revistas_por_letra = diccionario_alfabeto[letra]
-        total_results = len(lista_revistas_por_letra)  # Total de revistas que comienzan con la letra
+        total_results = len(lista_revistas_por_letra) 
         total_pages = (total_results + per_page - 1) // per_page
         start = (page - 1) * per_page
         end = start + per_page
@@ -69,7 +63,7 @@ def acerca_de():
 def buscar():
     texto_busqueda = request.args.get('search', '')
     page = request.args.get('page', 1, type=int)
-    per_page = 10  # Cantidad de resultados por página
+    per_page = 10 
 
     if texto_busqueda:
         todos_revistas = buscar_revistas_por_titulo(revistas, texto_busqueda)

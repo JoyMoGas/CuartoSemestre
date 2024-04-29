@@ -106,7 +106,7 @@ body {
     display: inline-block;
     width: 15px;
     height: 15px;
-    border: 1px solid #000; /* Añade un borde para que los colores claros sean visibles */
+    border: 1px solid #000;
     margin-right: 5px;
     vertical-align: middle;
 }
@@ -133,82 +133,82 @@ body {
     height:500px;
 }
 .p-logo {
-    overflow: hidden; /* Asegura que el contenedor maneje correctamente los elementos flotantes dentro */
+    overflow: hidden;
     padding-top: 10px;
     padding-right: 100px;
 }
 
 
 .p-logo img {
-    float: left; /* Hace que la imagen flote a la derecha */
-    margin-left: 20px; /* Añade espacio entre el texto y la imagen */
+    float: left; 
+    margin-left: 20px; 
     height: 100px;
     width: 100px;
 }
 
 .p-logo p {
     padding-top: 0px;
-    padding-right: 50px; /* Ajusta según necesidad para dar espacio al texto */
+    padding-right: 50px; 
 }
 
 
 table {
-    margin: auto; /* Centra la tabla horizontalmente */
-    border-collapse: collapse; /* Elimina los espacios entre los bordes de las celdas */
-    width: 95%; /* Ajusta al ancho deseado */
+    margin: auto; 
+    border-collapse: collapse; 
+    width: 95%;
 }
 
 th, td {
-    border: 1px solid rgb(183, 194, 211); /* Añade bordes visibles a cada celda */
+    border: 1px solid rgb(183, 194, 211);
     text-align: left;
-    padding: 8px; /* Añade un poco de padding para que el texto no toque los bordes */
+    padding: 8px; 
 }
 
 th:first-child, td:first-child {
-    width: 300px; /* Aumenta el ancho si es necesario */
-    word-wrap: break-word; /* Asegura que el texto se ajuste dentro de la celda */
+    width: 300px; 
+    word-wrap: break-word; 
 }
 
 th:nth-child(2), td:nth-child(2) {
-    width: 20%; /* Ejemplo: Ancho para la columna 'Tipo' */
+    width: 20%;
 }
 
 th:nth-child(3), td:nth-child(3) {
-    width: 20%; /* Ejemplo: Ancho para la columna 'SJR (Cuartil)' */
+    width: 20%;
 }
 
 th:nth-child(4), td:nth-child(4) {
-    width: 20%; /* Ejemplo: Ancho para la columna 'H-Index' */
+    width: 20%; 
 }
 
 .link-revista {
-    color: black; /* Asegura que el color del enlace sea negro */
-    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: black; 
+    text-decoration: none;
 }
 
 .link-revista:hover {
-    color: #4b4b4b; /* Añade un subrayado al pasar el mouse para indicar que es clickeable */
+    color: #4b4b4b; 
 }
 
 .botones {
-    display: flex;       /* Activa flexbox en el contenedor */
-    justify-content: center; /* Centra los elementos horizontalmente */
+    display: flex;   
+    justify-content: center; 
     padding-top: 20px;
 }
 
 .link-page a {
-    color: #FFF; /* Cambia el color del texto a blanco para mejor visibilidad */
-    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #FFF;
+    text-decoration: none;
 }
 
 .link-page {
-    padding: 5px 8px; /* Ajusta el padding como necesario */
-    margin: 0 5px; /* Añade un poco de espacio horizontal entre los botones */
+    padding: 5px 8px; 
+    margin: 0 5px; 
     border: 0;
     border-radius: 5px;
     background-color: #E1B640;
     transition: 0.3s;
-    cursor: pointer; /* Añade el cursor de tipo pointer para indicar clickeabilidad */
+    cursor: pointer;
 }
 
 .link-page:hover {
@@ -292,50 +292,49 @@ th:nth-child(4), td:nth-child(4) {
 }
 
 #principal {
-    display: flex; /* Usando flexbox para un mejor control del layout */
-    flex-direction: row; /* Los elementos hijos se organizan en fila */
-    justify-content: space-between; /* Distribuye el espacio de manera uniforme */
-    align-items: flex-start; /* Alinea los elementos al comienzo de su contenedor */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; 
     margin: auto;
     margin-top: 120px;
     width: 1250px;
-    background-color: #f8f8f8; /* Un color de fondo más suave */
-    padding: 20px; /* Añade algo de padding alrededor */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Añade un ligero sombreado para destacar el panel */
+    background-color: #f8f8f8; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
 }
 
 #info {
     width: 350px;
-    background-color: #e0e0e0; /* Un verde suave para el fondo */
-    padding: 10px; /* Espacio interior para no pegar el texto a los bordes */
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombreado interior suave */
+    background-color: #e0e0e0;
+    padding: 10px; 
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
 }
 
 #titulo {
-    width: calc(100% - 370px); /* Calcula el ancho restando el ancho de #info más algo de margen */
-    background-color: #d0e0f0; /* Un azul suave para el fondo */
-    padding: 20px; /* Espacio interior para el contenido */
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombreado interior suave */
+    width: calc(100% - 370px); 
+    background-color: #d0e0f0; 
+    padding: 20px; 
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
 }
 
-/* Estilos adicionales para mejorar la tipografía y la legibilidad */
 h1-info, h2-info, p-info {
-    margin: 0 0 20px 0; /* Añade un margen inferior para separar los elementos */
+    margin: 0 0 20px 0; 
 }
 
 h1-info {
-    color: #333; /* Color oscuro para mayor contraste */
-    font-size: 2rem; /* Tamaño de fuente grande para el título */
+    color: #333; 
+    font-size: 2rem; 
 }
 
 h2-info {
-    color: #666; /* Color medio para sub-títulos */
-    font-size: 1.75rem; /* Tamaño de fuente para sub-títulos */
+    color: #666;
+    font-size: 1.75rem;
 }
 
 p-info {
-    color: #444; /* Color oscuro para el texto normal */
-    font-size: 1.2rem; /* Tamaño de fuente legible para el cuerpo del texto */
+    color: #444; 
+    font-size: 1.2rem;
 }
 
 p {

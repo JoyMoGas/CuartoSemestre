@@ -25,20 +25,17 @@ def scrape_url(url: str):
         response = requests.get(url)
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, 'html.parser')
-            # Extract the main <h1> title if available
             h1_tag = soup.find('h1')
             if h1_tag:
                 data['TITLE'] = h1_tag.get_text(strip=True)
             else:
                 data['TITLE'] = 'No Title Found'
             
-            # Look for scope information specifically
             for div in soup.find_all('div', class_='fullwidth'):
                 h2_tag = div.find('h2')
                 if h2_tag and 'scope' in h2_tag.get_text(strip=True).lower():
                     data['SCOPE'] = div.get_text(strip=True, separator=' ').strip()
 
-            # Look for other data
             for div in soup.find_all('div'):
                 header_text = div.find('h2').get_text(strip=True) if div.find('h2') else ""
                 content = div.find('p')
@@ -64,9 +61,9 @@ def scrape_url(url: str):
                 data['URL_IMAGEN'] = input_element['value']
 
     except requests.RequestException as e:
-        print(f"Request failed: {e}")
+        print(f"Request falló: {e}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"Un error ocurrió: {e}")
     return data
 
 def read_urls_and_scrape():
@@ -98,5 +95,4 @@ def read_urls_and_scrape():
                 existing_urls.add(row['Link'])
                 time.sleep(1)
 
-# Run the scraping process
 read_urls_and_scrape()

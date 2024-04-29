@@ -1,6 +1,5 @@
 @import url('htpps://fonts.googleapis.com/css?family=Montserrat:500');
 
-
 html {
     padding-bottom: 100px;
     min-height: 100%;
@@ -13,11 +12,9 @@ html {
 }
 
 body {
-    padding-bottom: 70px; /* Ajusta este valor basado en la altura real de tu footer */
+    padding-bottom: 70px; 
 
 }
-
-
 
 /* ESTILOS PARA LA NAVBAR */
 
@@ -154,7 +151,6 @@ header .search-box{
     color: #ecf0f1;
 }
 
-
 /* ESTILOS PARA EL FOOTER */
 
 .footer {
@@ -163,12 +159,12 @@ header .search-box{
     text-align: center;
     bottom: 0px;
     width: 100%;
-    justify-content: center; /* Centra los elementos verticalmente */
-    padding: 10px 0; /* Añade algo de padding arriba y abajo para espaciado */
+    justify-content: center; 
+    padding: 10px 0;
 }
 
 .logo-personal {
-    height: 55px; /* Asegura uSna altura constante */
+    height: 55px; 
     cursor: pointer;
 }
 
@@ -179,11 +175,11 @@ header .search-box{
 
 .footer a {
     font-weight: 500;
-    color: #E1B640;  /* Color base para enlaces en el footer */
-    text-decoration: none;  /* Sin subrayado */
+    color: #E1B640; 
+    text-decoration: none; 
     transition: 0.5s;
 }
 
 .footer a:hover {
-    color: #ecf0f1;  /* Color cuando se pasa el mouse sobre el enlace */
+    color: #ecf0f1;  
 }

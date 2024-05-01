@@ -45,8 +45,7 @@ def solo_genero(genero):
         lista_peliculas = diccionario_generos[genero]
         return render_template("solo_genero.html", genero=genero, lista_peliculas=lista_peliculas, dicc_generos=diccionario_generos)
     else:
-        return render_template("no_existe.html")
-
+        return render_template("no_existe.html", dicc_generos=diccionario_generos)  # Also pass here to avoid errors in base template
 
 
 @app.route("/pelicula/<id>")

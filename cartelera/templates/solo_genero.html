@@ -9,16 +9,18 @@
 
     <div class="dropdown">
         <button class="open-button" id="menuButton" onclick="toggleMenu()">
-            &#9776;
-            Lista de géneros
+            &#9776; Lista de géneros
         </button>
         <div class="menu" id="menu">
             <a href="/generos" class="link-secondary">TODOS LOS GENEROS</a>
-            {% for gen, lista_peliculas in dicc_generos.items() %}
+            {% for gen, lista_peliculas in dicc_generos.items() if dicc_generos %}
                 <a href="/genero/{{ gen }}" class="link-secondary">{{ gen }}</a> <br>
+            {% else %}
+                <p>No genres available.</p>
             {% endfor %}
         </div>
     </div>
+    
 
     <table class="table table-striped">
         <thead>
